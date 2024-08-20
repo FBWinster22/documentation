@@ -1,0 +1,619 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agronorte-lib-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">agronorte-lib-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AgAlertsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/lib/widgets/ag-alerts/ag-alerts.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>El <code>AgAlertsComponent</code> es un componente autónomo en Angular que se utiliza para mostrar alertas
+visuales en la interfaz de usuario. El estilo y la información de la alerta se determinan a
+partir de los datos JSON proporcionados a través de la propiedad de entrada <code>@Input() jsondatos</code>.
+El componente utiliza Angular Material para los iconos y permite personalizar el color de
+fondo y del texto de la alerta en función de los datos proporcionados.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ag-alerts</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>MatIconModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ag-alerts.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./ag-alerts.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getColor" >getColor</a>
+                            </li>
+                            <li>
+                                <a href="#traducirColor" >traducirColor</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#jsondatos" >jsondatos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="jsondatos"></a>
+                        <b>jsondatos</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/lib/widgets/ag-alerts/ag-alerts.component.ts:29</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datos JSON utilizados para determinar los estilos y la información mostrada en el componente.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getColor"></a>
+                    <span class="name">
+                        <span ><b>getColor</b></span>
+                        <a href="#getColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getColor()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/lib/widgets/ag-alerts/ag-alerts.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene los estilos de color para el componente de alerta en función de los datos JSON.</p>
+<p>Este método determina el color de fondo y el color del texto basado en el valor de
+<code>jsondatos.color</code>. Si no se especifica un color válido, se establece un fondo blanco
+con texto blanco como predeterminado.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Un objeto con los estilos CSS para el color de fondo y el color del texto.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="traducirColor"></a>
+                    <span class="name">
+                        <span ><b>traducirColor</b></span>
+                        <a href="#traducirColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>traducirColor()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/lib/widgets/ag-alerts/ag-alerts.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Traduce el valor de <code>jsondatos.color</code> a un nombre de color en español.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">              - `1` devuelve &#39;Azul&#39;.
+              - `2` devuelve &#39;Amarillo&#39;.
+              - `3` devuelve &#39;Rojo&#39;.
+              - Deja de lado otros valores y devuelve una cadena vacía.</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>El nombre del color en español correspondiente al valor de <code>jsondatos.color</code>.</p>
+<ul>
+<li><code>1</code> devuelve &#39;Azul&#39;.</li>
+<li><code>2</code> devuelve &#39;Amarillo&#39;.</li>
+<li><code>3</code> devuelve &#39;Rojo&#39;.</li>
+<li>Deja de lado otros valores y devuelve una cadena vacía.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+
+/**
+ * @component AgAlertsComponent
+ *
+ * @description
+ * El &#x60;AgAlertsComponent&#x60; es un componente autónomo en Angular que se utiliza para mostrar alertas 
+ * visuales en la interfaz de usuario. El estilo y la información de la alerta se determinan a 
+ * partir de los datos JSON proporcionados a través de la propiedad de entrada &#x60;@Input() jsondatos&#x60;.
+ * El componente utiliza Angular Material para los iconos y permite personalizar el color de 
+ * fondo y del texto de la alerta en función de los datos proporcionados.
+ */
+@Component({
+  selector: &#x27;ag-alerts&#x27;,
+  standalone: true,
+  imports: [CommonModule, MatIconModule],
+  templateUrl: &#x27;./ag-alerts.component.html&#x27;,
+  styleUrl: &#x27;./ag-alerts.component.css&#x27;
+})
+export class AgAlertsComponent {
+
+  /**
+   * Datos JSON utilizados para determinar los estilos y la información mostrada en el componente.
+   * 
+   * @type {any}
+   */
+  @Input() jsondatos: any;
+
+  /**
+   * Obtiene los estilos de color para el componente de alerta en función de los datos JSON.
+   * 
+   * Este método determina el color de fondo y el color del texto basado en el valor de 
+   * &#x60;jsondatos.color&#x60;. Si no se especifica un color válido, se establece un fondo blanco 
+   * con texto blanco como predeterminado.
+   *
+   * @returns {any} Un objeto con los estilos CSS para el color de fondo y el color del texto.
+   * @memberof AgAlertsComponent
+   */
+  getColor(): any {
+    if (this.jsondatos &amp;&amp; this.jsondatos.color) {
+      let backgroundColor;
+      switch (this.jsondatos.color) {
+        case 1:
+          backgroundColor &#x3D; &#x27;#191982&#x27;;
+          break;
+        case 2:
+          backgroundColor &#x3D; &#x27;#b4992d&#x27;;
+          break;
+        case 3:
+          backgroundColor &#x3D; &#x27;#b92835&#x27;;
+          break;
+        default:
+          backgroundColor &#x3D; &#x27;white&#x27;; // Color de fondo por defecto si no coincide con ningún caso
+          break;
+      }
+      return {
+        &#x27;background-color&#x27;: backgroundColor,
+        &#x27;color&#x27;: &#x27;white&#x27; // Color del texto siempre blanco
+      };
+    }
+    return {
+      &#x27;background-color&#x27;: &#x27;white&#x27;, // Color de fondo por defecto
+      &#x27;color&#x27;: &#x27;white&#x27; // Color del texto por defecto
+    };
+  }
+
+  /**
+   * Traduce el valor de &#x60;jsondatos.color&#x60; a un nombre de color en español.
+   * 
+   * @returns {string} El nombre del color en español correspondiente al valor de &#x60;jsondatos.color&#x60;.
+   *                   - &#x60;1&#x60; devuelve &#x27;Azul&#x27;.
+   *                   - &#x60;2&#x60; devuelve &#x27;Amarillo&#x27;.
+   *                   - &#x60;3&#x60; devuelve &#x27;Rojo&#x27;.
+   *                   - Deja de lado otros valores y devuelve una cadena vacía.
+   */
+  traducirColor():string{
+    if(this.jsondatos.color &#x3D;&#x3D; 1)
+      return &#x27;Azul&#x27;
+    else if(this.jsondatos.color &#x3D;&#x3D; 2)
+      return &#x27;Amarillo&#x27;
+    else(this.jsondatos.color &#x3D;&#x3D; 3)
+      return &#x27;Rojo&#x27;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card&quot; [ngStyle]&#x3D;&quot;getColor()&quot;&gt;
+    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+        &lt;div class&#x3D;&quot;row d-flex justify-content-start&quot;&gt;
+            &lt;h5 class&#x3D;&quot;card-title col-5&quot;&gt;&lt;b&gt;{{ jsondatos.codigo }}&lt;/b&gt;&lt;/h5&gt;
+            &lt;button class&#x3D;&quot;col-2&quot; style&#x3D;&quot;border-radius: 10px; border:none ;background-color: #d2a92f;color: white;&quot;&gt;
+                &lt;mat-icon&gt;edit_square&lt;/mat-icon&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;b&gt;Color:&lt;/b&gt; {{ traducirColor() }} 
+        &lt;br&gt;
+        &lt;small&gt;{{ jsondatos.fechahora }}&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;card-body&quot;&gt;
+
+        &lt;legend&gt;{{ jsondatos.organizacion }}&lt;/legend&gt;
+        &lt;p&gt;{{ jsondatos.detallefalla }}&lt;/p&gt;
+
+        &lt;hr&gt;
+        &lt;button class&#x3D;&quot;btn btn-secondary&quot; style&#x3D;&quot;border-radius: 10px;&quot;&gt;
+            &lt;mat-icon&gt;notifications&lt;/mat-icon&gt;
+            Alertas Org.&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  </code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="card" [ngStyle]="getColor()">    <div class="card-header">        <div class="row d-flex justify-content-start">            <h5 class="card-title col-5"><b>{{ jsondatos.codigo }}</b></h5>            <button class="col-2" style="border-radius: 10px; border:none ;background-color: #d2a92f;color: white;">                <mat-icon>edit_square</mat-icon>            </button>        </div>        <b>Color:</b> {{ traducirColor() }}         <br>        <small>{{ jsondatos.fechahora }}</small>    </div>    <div class="card-body">        <legend>{{ jsondatos.organizacion }}</legend>        <p>{{ jsondatos.detallefalla }}</p>        <hr>        <button class="btn btn-secondary" style="border-radius: 10px;">            <mat-icon>notifications</mat-icon>            Alertas Org.</button>    </div>  </div>  </div>'
+    var COMPONENTS = [{'name': 'AgAlertsComponent', 'selector': 'ag-alerts'},{'name': 'AgAutocompleteComponent', 'selector': 'ag-autocomplete'},{'name': 'AgChartComponent', 'selector': 'ag-chart'},{'name': 'AgChildDynamicInputComponent', 'selector': 'ag-child-dynamic-input'},{'name': 'AgChildFormComponent', 'selector': 'ag-child-form'},{'name': 'AgContextMenuComponent', 'selector': 'app-context-menu'},{'name': 'AgCreateFormComponent', 'selector': 'ag-create-form'},{'name': 'AgDynamicInputComponent', 'selector': 'ag-dynamic-input'},{'name': 'AgFormComponent', 'selector': 'ag-form'},{'name': 'AgIndicadoresCalculados', 'selector': 'app-template'},{'name': 'AgIndicatorsComponent', 'selector': 'app-ag-indicators'},{'name': 'AgIndicatorsMachinesComponent', 'selector': 'app-template'},{'name': 'AgInputComponent', 'selector': 'ag-input'},{'name': 'AgLoginComponent', 'selector': 'ag-login'},{'name': 'AgLoginFormComponent', 'selector': 'ag-login-form'},{'name': 'AgLogoComponent', 'selector': 'app-ag-logo'},{'name': 'AgModalComponent', 'selector': 'ag-modal'},{'name': 'AgModelosIndicadoresComponent', 'selector': 'app-ag-modelos-indicadores'},{'name': 'AgNavbarComponent', 'selector': 'ag-navbar'},{'name': 'AgPermissionsComponent', 'selector': 'app-ag-permissions'},{'name': 'AgPopupAlertComponent', 'selector': 'ag-popup-alert'},{'name': 'AgRegisterFormComponent', 'selector': 'ag-register-form'},{'name': 'AgRelationsComponent', 'selector': 'app-ag-relations'},{'name': 'AgReportsComponent', 'selector': 'app-ag-reports'},{'name': 'AgSearchComponent', 'selector': 'ag-search'},{'name': 'AgSelectComponent', 'selector': 'ag-select'},{'name': 'AgSocialMediaComponent', 'selector': 'app-ag-social-media'},{'name': 'AgSubmenusComponent', 'selector': 'ag-submenus'},{'name': 'AgTableComponent', 'selector': 'ag-table'},{'name': 'AgTableschemaComponent', 'selector': 'app-ag-tableschema'},{'name': 'AgTimerComponent', 'selector': 'ag-timer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChequeoAutoelevadorComponent', 'selector': 'app-chequeo-autoelevador'},{'name': 'GenerateIndicatorsComponent', 'selector': 'app-ag-indicators-charts'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'PaletteComponent', 'selector': 'app-palette'},{'name': 'TemplateComponent', 'selector': 'app-template'}];
+    var DIRECTIVES = [{'name': 'BaseDynamicInputComponent', 'selector': ''},{'name': 'BaseFormComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'AgAlertsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AgAlertsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

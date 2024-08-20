@@ -1,0 +1,967 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agronorte-lib-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">agronorte-lib-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AgNavbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/lib/widgets/ag-navbar/ag-navbar.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de barra de navegación para la aplicación.</p>
+<p>El componente <code>AgNavbarComponent</code> proporciona una barra de navegación con enlaces dinámicos que se obtienen de un servicio API. Incluye métodos para alternar la visibilidad del menú de navegación y para buscar submenús basados en la ruta actual del enrutador.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ag-navbar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatSidenavModule</code>
+                            <code>RouterLink</code>
+                            <code>RouterLinkActive</code>
+                            <code>MatIconModule</code>
+                            <code>CommonModule</code>
+                            <code>MatExpansionModule</code>
+                                <code><a href="../components/AgSubmenusComponent.html" target="_self" >AgSubmenusComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ag-navbar.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./ag-navbar.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currentMenu" >currentMenu</a>
+                            </li>
+                            <li>
+                                <a href="#currentSubmenus" >currentSubmenus</a>
+                            </li>
+                            <li>
+                                <a href="#isNavOpen" >isNavOpen</a>
+                            </li>
+                            <li>
+                                <a href="#navRes" >navRes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buscarSubmenus" >buscarSubmenus</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleNav" >toggleNav</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#linksUrl" >linksUrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apiService: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:75</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Crea una instancia del componente <code>AgNavbarComponent</code>.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>El servicio API utilizado para obtener los enlaces de navegación.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>El enrutador utilizado para obtener la ruta actual.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="linksUrl"></a>
+                        <b>linksUrl</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:39</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>URL del endpoint para obtener los enlaces de navegación.</p>
+<p>Esta propiedad se utiliza para especificar la URL del servicio API que proporciona los datos para los enlaces de navegación. Debe ser una URL válida que apunte al recurso de enlaces de navegación.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buscarSubmenus"></a>
+                    <span class="name">
+                        <span ><b>buscarSubmenus</b></span>
+                        <a href="#buscarSubmenus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buscarSubmenus()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Busca los submenús basados en la ruta activa.</p>
+<p>Este método obtiene la ruta principal de la URL activa y encuentra el menú correspondiente en la propiedad <code>navRes</code>. Actualiza las propiedades <code>currentMenu</code> y <code>currentSubmenus</code> con el menú y los submenús encontrados.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Inicializa el componente.</p>
+<p>Este método se ejecuta cuando el componente se inicializa. Realiza una solicitud al servicio API para obtener los datos de los enlaces de navegación y los asigna a la propiedad <code>navRes</code>.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleNav"></a>
+                    <span class="name">
+                        <span ><b>toggleNav</b></span>
+                        <a href="#toggleNav"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleNav()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Alterna el estado de apertura del menú de navegación.</p>
+<p>Este método cambia el valor de la propiedad <code>isNavOpen</code> para abrir o cerrar el menú de navegación.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentMenu"></a>
+                    <span class="name">
+                        <span ><b>currentMenu</b></span>
+                        <a href="#currentMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/NavMenusInterface.html" target="_self" >NavMenusInterface[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Menú actual basado en la ruta activa.</p>
+<p>Esta propiedad almacena el menú actual que corresponde a la ruta activa en el enrutador. Se utiliza para resaltar el menú activo en la barra de navegación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentSubmenus"></a>
+                    <span class="name">
+                        <span ><b>currentSubmenus</b></span>
+                        <a href="#currentSubmenus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/NavMenusInterface.html" target="_self" >NavMenusInterface[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Submenús del menú actual.</p>
+<p>Esta propiedad almacena los submenús asociados al menú actual. Se actualiza cuando se selecciona un menú en la barra de navegación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNavOpen"></a>
+                    <span class="name">
+                        <span ><b>isNavOpen</b></span>
+                        <a href="#isNavOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Estado de apertura del menú de navegación.</p>
+<p>Indica si el menú de navegación está abierto (<code>true</code>) o cerrado (<code>false</code>).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navRes"></a>
+                    <span class="name">
+                        <span ><b>navRes</b></span>
+                        <a href="#navRes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/NavMenusInterface.html" target="_self" >NavMenusInterface[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/lib/widgets/ag-navbar/ag-navbar.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de menús de navegación obtenidos del servicio API.</p>
+<p>Esta propiedad almacena los datos de los menús de navegación obtenidos a través del servicio API. Cada elemento de la lista representa un menú que se mostrará en la barra de navegación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { MatSidenavModule } from &#x27;@angular/material/sidenav&#x27;
+import { Router, RouterLink, RouterLinkActive } from &#x27;@angular/router&#x27;; 
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;
+import { NavMenusInterface } from &#x27;../../interfaces/APIResponseInterface&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { MatExpansionModule } from &#x27;@angular/material/expansion&#x27;;
+import { ApiService } from &#x27;../../functions/api.service&#x27;;
+import { AgSubmenusComponent } from &quot;../ag-submenus/ag-submenus.component&quot;;
+
+/**
+ * Componente de barra de navegación para la aplicación.
+ * 
+ * El componente &#x60;AgNavbarComponent&#x60; proporciona una barra de navegación con enlaces dinámicos que se obtienen de un servicio API. Incluye métodos para alternar la visibilidad del menú de navegación y para buscar submenús basados en la ruta actual del enrutador.
+ * 
+ * @component
+ * @selector ag-navbar
+ * @templateUrl ./ag-navbar.component.html
+ * @styleUrl ./ag-navbar.component.css
+ * @imports [MatSidenavModule, RouterLink, RouterLinkActive, MatIconModule, CommonModule, MatExpansionModule, AgSubmenusComponent]
+ */
+@Component({
+    selector: &#x27;ag-navbar&#x27;,
+    standalone: true,
+    templateUrl: &#x27;./ag-navbar.component.html&#x27;,
+    styleUrl: &#x27;./ag-navbar.component.css&#x27;,
+    imports: [MatSidenavModule, RouterLink, RouterLinkActive, MatIconModule, CommonModule, MatExpansionModule, AgSubmenusComponent]
+})
+export class AgNavbarComponent implements OnInit{
+
+  /**
+   * URL del endpoint para obtener los enlaces de navegación.
+   * 
+   * Esta propiedad se utiliza para especificar la URL del servicio API que proporciona los datos para los enlaces de navegación. Debe ser una URL válida que apunte al recurso de enlaces de navegación.
+   * 
+   * @memberof AgNavbarComponent
+   * @type {string}
+   */
+  @Input() linksUrl!:string;
+  /**
+   * Estado de apertura del menú de navegación.
+   * 
+   * Indica si el menú de navegación está abierto (&#x60;true&#x60;) o cerrado (&#x60;false&#x60;).
+   * 
+   * @memberof AgNavbarComponent
+   * @type {boolean}
+   */
+  isNavOpen : boolean &#x3D; false
+  /**
+   * Lista de menús de navegación obtenidos del servicio API.
+   * 
+   * Esta propiedad almacena los datos de los menús de navegación obtenidos a través del servicio API. Cada elemento de la lista representa un menú que se mostrará en la barra de navegación.
+   * 
+   * @memberof AgNavbarComponent
+   * @type {NavMenusInterface[]}
+   */
+  navRes:NavMenusInterface[] &#x3D; []
+  /**
+   * Menú actual basado en la ruta activa.
+   * 
+   * Esta propiedad almacena el menú actual que corresponde a la ruta activa en el enrutador. Se utiliza para resaltar el menú activo en la barra de navegación.
+   * 
+   * @memberof AgNavbarComponent
+   * @type {NavMenusInterface[]}
+   */
+  currentMenu:NavMenusInterface[] &#x3D; []
+  /**
+   * Submenús del menú actual.
+   * 
+   * Esta propiedad almacena los submenús asociados al menú actual. Se actualiza cuando se selecciona un menú en la barra de navegación.
+   * 
+   * @memberof AgNavbarComponent
+   * @type {NavMenusInterface[]}
+   */
+  currentSubmenus:NavMenusInterface[] &#x3D; []
+
+  /**
+   * Crea una instancia del componente &#x60;AgNavbarComponent&#x60;.
+   * 
+   * @param {ApiService} apiService - El servicio API utilizado para obtener los enlaces de navegación.
+   * @param {Router} router - El enrutador utilizado para obtener la ruta actual.
+   * @memberof AgNavbarComponent
+   */
+  constructor(private apiService: ApiService, private router:Router) { }
+
+  /**
+   * Inicializa el componente.
+   * 
+   * Este método se ejecuta cuando el componente se inicializa. Realiza una solicitud al servicio API para obtener los datos de los enlaces de navegación y los asigna a la propiedad &#x60;navRes&#x60;.
+   * 
+   * @memberof AgNavbarComponent
+   * @method ngOnInit
+   * @returns {void}
+   */
+  ngOnInit(): void {
+    this.apiService.get(&#x60;${this.linksUrl}&#x60;).subscribe((res:any)&#x3D;&gt;{
+      this.navRes &#x3D; res
+    })
+  }
+
+  /**
+   * Alterna el estado de apertura del menú de navegación.
+   * 
+   * Este método cambia el valor de la propiedad &#x60;isNavOpen&#x60; para abrir o cerrar el menú de navegación.
+   * 
+   * @memberof AgNavbarComponent
+   * @method toggleNav
+   * @returns {void}
+   */
+  toggleNav(){
+    this.isNavOpen &#x3D; !this.isNavOpen
+  }
+
+  /**
+   * Busca los submenús basados en la ruta activa.
+   * 
+   * Este método obtiene la ruta principal de la URL activa y encuentra el menú correspondiente en la propiedad &#x60;navRes&#x60;. Actualiza las propiedades &#x60;currentMenu&#x60; y &#x60;currentSubmenus&#x60; con el menú y los submenús encontrados.
+   * 
+   * @memberof AgNavbarComponent
+   * @method buscarSubmenus
+   * @returns {void}
+   */
+  buscarSubmenus() { //Nombre de método inconsistente
+    /*Nombre de variable inconsistente ---&gt; */const rutaPrincipal &#x3D; this.router.url.split(&#x27;/&#x27;).filter(parte &#x3D;&gt; parte !&#x3D;&#x3D; &#x27;&#x27;)[0] ?? &#x27;&#x27;; // Divide en partes la ruta completa y filtra partes vacías
+    if (!rutaPrincipal) return;
+    this.currentMenu &#x3D; []; // Resetea los menús actuales
+    this.currentSubmenus &#x3D; []; // Resetea los submenús actuales
+    /*Nombre de variable inconsistente ---&gt; */const menuEncontrado &#x3D; this.navRes.find(menu &#x3D;&gt; menu.directorio &#x3D;&#x3D;&#x3D; &#x60;/${rutaPrincipal}&#x60;); // Encuentra el menú que coincide con la ruta principal
+    if (menuEncontrado) {
+      this.currentMenu.push(menuEncontrado);
+      this.currentSubmenus &#x3D; menuEncontrado.submenus;
+      console.log(menuEncontrado);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-drawer-container [class]&#x3D;&quot;&#x27;ag-navbar ag-navbar-&#x27;+(isNavOpen?&#x27;expanded-pd&#x27;:&#x27;collapsed-pd&#x27;)&quot;&gt;
+    &lt;mat-drawer #sidebar mode&#x3D;&quot;side&quot; [opened]&#x3D;&quot;isNavOpen&quot;&gt;
+        &lt;h3&gt;Agronorte&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li *ngFor&#x3D;&quot;let item of navRes&quot; routerLink&#x3D;&quot;{{item.directorio}}&quot; (isActiveChange)&#x3D;&quot;buscarSubmenus()&quot; routerLinkActive&#x3D;&quot;activeLink&quot;&gt;
+                &lt;mat-icon class&#x3D;&quot;nav-mat-icon&quot;&gt;{{item.icono}}&lt;/mat-icon&gt;
+                &lt;p class&#x3D;&quot;nav-item-text&quot;&gt; {{item.nombre}} &lt;/p&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/mat-drawer&gt;
+    &lt;mat-drawer-content&gt;
+        &lt;div class&#x3D;&quot;submenus&quot;&gt;
+            &lt;ul *ngIf&#x3D;&quot;currentSubmenus&quot;&gt;
+                &lt;li *ngFor&#x3D;&quot;let submenus of currentSubmenus&quot; routerLink&#x3D;&quot;{{currentMenu[0].directorio+submenus.directorio}}&quot; (isActiveChange)&#x3D;&quot;buscarSubmenus()&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;
+                    {{submenus.nombre}}
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;button class&#x3D;&quot;&quot; type&#x3D;&quot;button&quot; mat-button (click)&#x3D;&quot;toggleNav()&quot;&gt;
+                &lt;mat-icon&gt;menu&lt;/mat-icon&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;ng-content&gt;&lt;/ng-content&gt;
+    &lt;/mat-drawer-content&gt;
+&lt;/mat-drawer-container&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-drawer-container [class]="\'ag-navbar ag-navbar-\'+(isNavOpen?\'expanded-pd\':\'collapsed-pd\')">    <mat-drawer #sidebar mode="side" [opened]="isNavOpen">        <h3>Agronorte</h3>        <ul>            <li *ngFor="let item of navRes" routerLink="{{item.directorio}}" (isActiveChange)="buscarSubmenus()" routerLinkActive="activeLink">                <mat-icon class="nav-mat-icon">{{item.icono}}</mat-icon>                <p class="nav-item-text"> {{item.nombre}} </p>            </li>        </ul>    </mat-drawer>    <mat-drawer-content>        <div class="submenus">            <ul *ngIf="currentSubmenus">                <li *ngFor="let submenus of currentSubmenus" routerLink="{{currentMenu[0].directorio+submenus.directorio}}" (isActiveChange)="buscarSubmenus()" routerLinkActive="active">                    {{submenus.nombre}}                </li>            </ul>            <button class="" type="button" mat-button (click)="toggleNav()">                <mat-icon>menu</mat-icon>            </button>        </div>        <ng-content></ng-content>    </mat-drawer-content></mat-drawer-container></div>'
+    var COMPONENTS = [{'name': 'AgAlertsComponent', 'selector': 'ag-alerts'},{'name': 'AgAutocompleteComponent', 'selector': 'ag-autocomplete'},{'name': 'AgChartComponent', 'selector': 'ag-chart'},{'name': 'AgChildDynamicInputComponent', 'selector': 'ag-child-dynamic-input'},{'name': 'AgChildFormComponent', 'selector': 'ag-child-form'},{'name': 'AgContextMenuComponent', 'selector': 'app-context-menu'},{'name': 'AgCreateFormComponent', 'selector': 'ag-create-form'},{'name': 'AgDynamicInputComponent', 'selector': 'ag-dynamic-input'},{'name': 'AgFormComponent', 'selector': 'ag-form'},{'name': 'AgIndicadoresCalculados', 'selector': 'app-template'},{'name': 'AgIndicatorsComponent', 'selector': 'app-ag-indicators'},{'name': 'AgIndicatorsMachinesComponent', 'selector': 'app-template'},{'name': 'AgInputComponent', 'selector': 'ag-input'},{'name': 'AgLoginComponent', 'selector': 'ag-login'},{'name': 'AgLoginFormComponent', 'selector': 'ag-login-form'},{'name': 'AgLogoComponent', 'selector': 'app-ag-logo'},{'name': 'AgModalComponent', 'selector': 'ag-modal'},{'name': 'AgModelosIndicadoresComponent', 'selector': 'app-ag-modelos-indicadores'},{'name': 'AgNavbarComponent', 'selector': 'ag-navbar'},{'name': 'AgPermissionsComponent', 'selector': 'app-ag-permissions'},{'name': 'AgPopupAlertComponent', 'selector': 'ag-popup-alert'},{'name': 'AgRegisterFormComponent', 'selector': 'ag-register-form'},{'name': 'AgRelationsComponent', 'selector': 'app-ag-relations'},{'name': 'AgReportsComponent', 'selector': 'app-ag-reports'},{'name': 'AgSearchComponent', 'selector': 'ag-search'},{'name': 'AgSelectComponent', 'selector': 'ag-select'},{'name': 'AgSocialMediaComponent', 'selector': 'app-ag-social-media'},{'name': 'AgSubmenusComponent', 'selector': 'ag-submenus'},{'name': 'AgTableComponent', 'selector': 'ag-table'},{'name': 'AgTableschemaComponent', 'selector': 'app-ag-tableschema'},{'name': 'AgTimerComponent', 'selector': 'ag-timer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChequeoAutoelevadorComponent', 'selector': 'app-chequeo-autoelevador'},{'name': 'GenerateIndicatorsComponent', 'selector': 'app-ag-indicators-charts'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'PaletteComponent', 'selector': 'app-palette'},{'name': 'TemplateComponent', 'selector': 'app-template'}];
+    var DIRECTIVES = [{'name': 'BaseDynamicInputComponent', 'selector': ''},{'name': 'BaseFormComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'AgNavbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AgNavbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

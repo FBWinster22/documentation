@@ -1,0 +1,515 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agronorte-lib-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">agronorte-lib-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AgLoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/lib/menus/auth/ag-login/ag-login.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para el inicio de sesión y registro de usuarios.</p>
+<p>Este componente proporciona una interfaz para que los usuarios inicien sesión o se registren en la aplicación.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ag-login</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                                <code><a href="../components/AgLoginFormComponent.html" target="_self" >AgLoginFormComponent</a></code>
+                                <code><a href="../components/AgRegisterFormComponent.html" target="_self" >AgRegisterFormComponent</a></code>
+                                <code><a href="../components/AgLogoComponent.html" target="_self" >AgLogoComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ag-login.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./ag-login.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isNew" >isNew</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeForm" >changeForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeForm"></a>
+                    <span class="name">
+                        <span ><b>changeForm</b></span>
+                        <a href="#changeForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/lib/menus/auth/ag-login/ag-login.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Alterna entre el formulario de inicio de sesión y el de registro.</p>
+<p>Cambia el estado de <code>isNew</code> entre <code>true</code> y <code>false</code>, permitiendo la visualización del formulario de registro o de inicio de sesión.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNew"></a>
+                    <span class="name">
+                        <span ><b>isNew</b></span>
+                        <a href="#isNew"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/lib/menus/auth/ag-login/ag-login.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si el formulario de registro está activo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Component } from &#x27;@angular/core&#x27;;
+import { AgLoginFormComponent } from &#x27;./components/ag-form-login/ag-form-login.component&#x27;;
+import { AgLogoComponent } from &#x27;../ag-logo/ag-logo.component&#x27;;
+import { AgRegisterFormComponent } from &#x27;./components/ag-form-register/ag-form-register.component&#x27;;
+
+/**
+ * Componente para el inicio de sesión y registro de usuarios.
+ * 
+ * Este componente proporciona una interfaz para que los usuarios inicien sesión o se registren en la aplicación.
+ * 
+ * @component
+ * @memberof AgLoginComponent
+ */
+@Component({
+  selector: &#x27;ag-login&#x27;,
+  standalone: true,
+  imports: [CommonModule, AgLoginFormComponent, AgRegisterFormComponent ,AgLogoComponent],
+  templateUrl: &#x27;./ag-login.component.html&#x27;,
+  styleUrl: &#x27;./ag-login.component.css&#x27;
+})
+export class AgLoginComponent {
+
+  /**
+   * Indica si el formulario de registro está activo.
+   * 
+   * @type {boolean}
+   */
+  isNew:boolean &#x3D; false
+
+  /**
+   * Alterna entre el formulario de inicio de sesión y el de registro.
+   * 
+   * Cambia el estado de &#x60;isNew&#x60; entre &#x60;true&#x60; y &#x60;false&#x60;, permitiendo la visualización del formulario de registro o de inicio de sesión.
+   * 
+   * @method
+   * @memberof AgLoginComponent
+   */
+  changeForm(){
+    this.isNew &#x3D; !this.isNew
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;login_container&quot;&gt;
+    &lt;div class&#x3D;&quot;login_content&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;isNew&quot; class&#x3D;&quot;form_reg&quot;&gt;
+            &lt;ag-register-form (isNew)&#x3D;&quot;isNew &#x3D; $event&quot;&gt;&lt;/ag-register-form&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]&#x3D;&quot;isNew ? &#x27;logo_left anim_left&#x27; : &#x27;logo_right anim_right&#x27;&quot;&gt;
+            &lt;app-ag-logo&gt;&lt;/app-ag-logo&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;!isNew&quot; class&#x3D;&quot;form_log&quot;&gt;
+            &lt;ag-login-form (isNew)&#x3D;&quot;isNew &#x3D; $event&quot;&gt;&lt;/ag-login-form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="login_container">    <div class="login_content">        <div *ngIf="isNew" class="form_reg">            <ag-register-form (isNew)="isNew = $event"></ag-register-form>        </div>        <div [ngClass]="isNew ? \'logo_left anim_left\' : \'logo_right anim_right\'">            <app-ag-logo></app-ag-logo>        </div>        <div *ngIf="!isNew" class="form_log">            <ag-login-form (isNew)="isNew = $event"></ag-login-form>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AgAlertsComponent', 'selector': 'ag-alerts'},{'name': 'AgAutocompleteComponent', 'selector': 'ag-autocomplete'},{'name': 'AgChartComponent', 'selector': 'ag-chart'},{'name': 'AgChildDynamicInputComponent', 'selector': 'ag-child-dynamic-input'},{'name': 'AgChildFormComponent', 'selector': 'ag-child-form'},{'name': 'AgContextMenuComponent', 'selector': 'app-context-menu'},{'name': 'AgCreateFormComponent', 'selector': 'ag-create-form'},{'name': 'AgDynamicInputComponent', 'selector': 'ag-dynamic-input'},{'name': 'AgFormComponent', 'selector': 'ag-form'},{'name': 'AgIndicadoresCalculados', 'selector': 'app-template'},{'name': 'AgIndicatorsComponent', 'selector': 'app-ag-indicators'},{'name': 'AgIndicatorsMachinesComponent', 'selector': 'app-template'},{'name': 'AgInputComponent', 'selector': 'ag-input'},{'name': 'AgLoginComponent', 'selector': 'ag-login'},{'name': 'AgLoginFormComponent', 'selector': 'ag-login-form'},{'name': 'AgLogoComponent', 'selector': 'app-ag-logo'},{'name': 'AgModalComponent', 'selector': 'ag-modal'},{'name': 'AgModelosIndicadoresComponent', 'selector': 'app-ag-modelos-indicadores'},{'name': 'AgNavbarComponent', 'selector': 'ag-navbar'},{'name': 'AgPermissionsComponent', 'selector': 'app-ag-permissions'},{'name': 'AgPopupAlertComponent', 'selector': 'ag-popup-alert'},{'name': 'AgRegisterFormComponent', 'selector': 'ag-register-form'},{'name': 'AgRelationsComponent', 'selector': 'app-ag-relations'},{'name': 'AgReportsComponent', 'selector': 'app-ag-reports'},{'name': 'AgSearchComponent', 'selector': 'ag-search'},{'name': 'AgSelectComponent', 'selector': 'ag-select'},{'name': 'AgSocialMediaComponent', 'selector': 'app-ag-social-media'},{'name': 'AgSubmenusComponent', 'selector': 'ag-submenus'},{'name': 'AgTableComponent', 'selector': 'ag-table'},{'name': 'AgTableschemaComponent', 'selector': 'app-ag-tableschema'},{'name': 'AgTimerComponent', 'selector': 'ag-timer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChequeoAutoelevadorComponent', 'selector': 'app-chequeo-autoelevador'},{'name': 'GenerateIndicatorsComponent', 'selector': 'app-ag-indicators-charts'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'PaletteComponent', 'selector': 'app-palette'},{'name': 'TemplateComponent', 'selector': 'app-template'}];
+    var DIRECTIVES = [{'name': 'BaseDynamicInputComponent', 'selector': ''},{'name': 'BaseFormComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'AgLoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AgLoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

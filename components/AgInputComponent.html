@@ -1,0 +1,2486 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agronorte-lib-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">agronorte-lib-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AgInputComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/lib/widgets/ag-input/ag-input.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente <code>AgInputComponent</code></p>
+<p>El componente <code>AgInputComponent</code> es un control de entrada reutilizable que se puede utilizar para capturar datos de usuario en formularios. Ofrece soporte para diferentes tipos de campos de entrada, incluyendo texto, contraseñas y archivos, y proporciona funcionalidades adicionales como previsualización de imágenes y manejo de eventos de entrada y cambio de archivos.</p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Tipo de entrada</strong>: Permite diferentes tipos de campos de entrada como texto, contraseñas y archivos.</li>
+<li><strong>Previsualización de imágenes</strong>: Soporta la carga y previsualización de imágenes antes de su envío.</li>
+<li><strong>Eventos</strong>: Emite eventos para cambios de valor y archivos, y para la apertura de modales de búsqueda.</li>
+<li><strong>Soporte para formularios</strong>: Compatible con la interfaz <code>ControlValueAccessor</code> para integrarse con formularios Angular.</li>
+</ul>
+<p><strong>Uso</strong>:
+Este componente se puede utilizar en formularios para capturar datos del usuario, manejar la visibilidad de contraseñas y previsualizar archivos seleccionados. También es compatible con la integración de modales de búsqueda para opciones dinámicas o predefinidas.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../components/AgInputComponent.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; AgInputComponent), multi: true,
+}</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ag-input</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>FontAwesomeModule</code>
+                            <code>FormsModule</code>
+                            <code>MatIconModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ag-input.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./ag-input.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#faQuestion" >faQuestion</a>
+                            </li>
+                            <li>
+                                <a href="#getObjectValue" >getObjectValue</a>
+                            </li>
+                            <li>
+                                <a href="#imagePreview" >imagePreview</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#innerValue" >innerValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#inputElementRef" >inputElementRef</a>
+                            </li>
+                            <li>
+                                <a href="#isPassword" >isPassword</a>
+                            </li>
+                            <li>
+                                <a href="#mapDataTypeInputType" >mapDataTypeInputType</a>
+                            </li>
+                            <li>
+                                <a href="#onChange" >onChange</a>
+                            </li>
+                            <li>
+                                <a href="#onTouched" >onTouched</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changePassState" >changePassState</a>
+                            </li>
+                            <li>
+                                <a href="#desplegarModal" >desplegarModal</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onBlur" >onBlur</a>
+                            </li>
+                            <li>
+                                <a href="#onFileChange" >onFileChange</a>
+                            </li>
+                            <li>
+                                <a href="#onInput" >onInput</a>
+                            </li>
+                            <li>
+                                <a href="#onValueChange" >onValueChange</a>
+                            </li>
+                            <li>
+                                <a href="#registerOnChange" >registerOnChange</a>
+                            </li>
+                            <li>
+                                <a href="#registerOnTouched" >registerOnTouched</a>
+                            </li>
+                            <li>
+                                <a href="#removeImg" >removeImg</a>
+                            </li>
+                            <li>
+                                <a href="#writeValue" >writeValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#accept" >accept</a>
+                            </li>
+                            <li>
+                                <a href="#api_search_criteria_group" >api_search_criteria_group</a>
+                            </li>
+                            <li>
+                                <a href="#detail" >detail</a>
+                            </li>
+                            <li>
+                                <a href="#isValid" >isValid</a>
+                            </li>
+                            <li>
+                                <a href="#label" >label</a>
+                            </li>
+                            <li>
+                                <a href="#name" >name</a>
+                            </li>
+                            <li>
+                                <a href="#readOnly" >readOnly</a>
+                            </li>
+                            <li>
+                                <a href="#search_index" >search_index</a>
+                            </li>
+                            <li>
+                                <a href="#search_table" >search_table</a>
+                            </li>
+                            <li>
+                                <a href="#type" >type</a>
+                            </li>
+                            <li>
+                                <a href="#value" >value</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#fileChange" >fileChange</a>
+                            </li>
+                            <li>
+                                <a href="#openSearchModal" >openSearchModal</a>
+                            </li>
+                            <li>
+                                <a href="#valueChange" >valueChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(apiService: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, cdr: ChangeDetectorRef)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:199</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cdr</td>
+                                                  
+                                                        <td>
+                                                                    <code>ChangeDetectorRef</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="accept"></a>
+                        <b>accept</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:140</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tipo de archivo aceptado por el campo de entrada (por ejemplo, &#39;image/*&#39;).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="api_search_criteria_group"></a>
+                        <b>api_search_criteria_group</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ApiSearchInterface.html" target="_self" >ApiSearchInterface</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:161</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Criterios de búsqueda de la API para el campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="detail"></a>
+                        <b>detail</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:133</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Detalle adicional o descripción para el campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isValid"></a>
+                        <b>isValid</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:168</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Estado de validez del campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="label"></a>
+                        <b>label</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:98</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Etiqueta que se mostrará para el campo del formulario.</p>
+<p>Esta propiedad define el texto que se utiliza como etiqueta para el campo del formulario.
+Si no se proporciona una etiqueta, el campo se mostrará sin texto asociado.
+La etiqueta puede ser utilizada para describir o dar contexto al propósito del campo.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <b>name</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:112</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Nombre del campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="readOnly"></a>
+                        <b>readOnly</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:126</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Estado de solo lectura del campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="search_index"></a>
+                        <b>search_index</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:154</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Índice utilizado para la búsqueda en el campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="search_table"></a>
+                        <b>search_table</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:147</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tabla utilizada para la búsqueda en el campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:105</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tipo de campo de entrada (por ejemplo, texto, archivo).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="value"></a>
+                        <b>value</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:119</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Valor del campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileChange"></a>
+                        <b>fileChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="185" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:185</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando cambia un archivo en el campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openSearchModal"></a>
+                        <b>openSearchModal</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:199</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido para abrir el modal de búsqueda.</p>
+<p>Este evento puede ser utilizado para desencadenar la apertura de un modal de búsqueda. Dependiendo de la configuración del componente,
+el modal puede presentar opciones de selección de dos maneras:</p>
+<ul>
+<li><strong>Conjunto predefinido</strong>: Opciones proporcionadas como pares clave-valor (<code>{ &quot;value&quot;: &quot;text&quot; }</code>), donde &quot;value&quot; es el valor que se enviará al seleccionar una opción y &quot;text&quot; es el texto visible en la interfaz de usuario.</li>
+<li><strong>Desde API</strong>: Opciones dinámicamente obtenidas a través de una solicitud a una API, permitiendo que las opciones se adapten a datos externos.</li>
+</ul>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="valueChange"></a>
+                        <b>valueChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:177</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando cambia el valor del campo de entrada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePassState"></a>
+                    <span class="name">
+                        <span ><b>changePassState</b></span>
+                        <a href="#changePassState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changePassState()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia el estado de visibilidad del campo de contraseña.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="desplegarModal"></a>
+                    <span class="name">
+                        <span ><b>desplegarModal</b></span>
+                        <a href="#desplegarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>desplegarModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="223"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:223</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Despliega el modal de búsqueda y emite un evento con el índice de búsqueda.</p>
+<p>Este método se encarga de emitir el evento <code>openSearchModal</code> con el <code>search_index</code> actual. El evento puede ser utilizado para abrir un modal de búsqueda que utiliza el índice proporcionado para realizar una búsqueda específica.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:205</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onBlur"></a>
+                    <span class="name">
+                        <span ><b>onBlur</b></span>
+                        <a href="#onBlur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onBlur()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="339"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:339</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de desenfoque del campo de entrada.</p>
+<p>Este método se llama cuando el campo de entrada pierde el enfoque. Invoca la función <code>onTouched</code> para manejar cualquier lógica asociada con el evento de desenfoque, como la validación del campo o la actualización del estado.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileChange"></a>
+                    <span class="name">
+                        <span ><b>onFileChange</b></span>
+                        <a href="#onFileChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileChange(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="409"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:409</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el cambio de archivo en el campo de entrada.</p>
+<p>Este método se ejecuta cuando se selecciona un archivo en el campo de entrada. Lee el archivo utilizando un <code>FileReader</code> para generar una vista previa de la imagen y la asigna a la propiedad <code>imagePreview</code>. Además, emite eventos <code>valueChange</code> y <code>fileChange</code> con el nuevo valor del campo de entrada y el archivo seleccionado, respectivamente.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El evento de cambio que contiene el archivo seleccionado.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onInput"></a>
+                    <span class="name">
+                        <span ><b>onInput</b></span>
+                        <a href="#onInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onInput(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="308"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:308</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de entrada del campo de formulario.</p>
+<p>Este método se ejecuta cuando ocurre un evento de entrada en el campo de formulario. Actualiza el valor del campo basado en la entrada del usuario y maneja la carga de archivos si se selecciona un archivo. Además, emite eventos <code>valueChange</code> y <code>fileChange</code> con el nuevo valor y el archivo seleccionado, respectivamente. Si se selecciona un archivo, también se lee y muestra una vista previa de la imagen.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El evento de entrada que contiene la información del campo de entrada.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onValueChange"></a>
+                    <span class="name">
+                        <span ><b>onValueChange</b></span>
+                        <a href="#onValueChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onValueChange(newValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="264"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:264</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el cambio de valor en el campo de entrada.</p>
+<p>Este método actualiza el valor del campo de entrada y emite un evento <code>valueChange</code> con el nuevo valor. Si el nuevo valor es una cadena vacía, también se llama al método <code>removeImg</code> para eliminar una imagen asociada, si corresponde.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newValue</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El nuevo valor del campo de entrada que se está actualizando.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOnChange"></a>
+                    <span class="name">
+                        <span ><b>registerOnChange</b></span>
+                        <a href="#registerOnChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOnChange(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="367"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:367</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Registra una función de cambio para el componente.</p>
+<p>Este método es parte de la interfaz <code>ControlValueAccessor</code> y se utiliza para registrar una función de cambio que será llamada cuando el valor del componente cambie. La función proporcionada se asigna a la propiedad <code>onChange</code> del componente, que se invocará con el nuevo valor del campo cuando ocurra un cambio.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La función de cambio que se debe registrar. Esta función será llamada con el nuevo valor del campo cuando ocurra un cambio.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOnTouched"></a>
+                    <span class="name">
+                        <span ><b>registerOnTouched</b></span>
+                        <a href="#registerOnTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOnTouched(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="381"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:381</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Registra una función que se llama cuando el campo es tocado.</p>
+<p>Este método es parte de la interfaz <code>ControlValueAccessor</code> y se utiliza para registrar una función que será llamada cuando el campo de entrada sea tocado o interactuado. La función proporcionada se asigna a la propiedad <code>onTouched</code> del componente, la cual se invocará para manejar la lógica asociada con el evento de desenfoque.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La función que se debe registrar. Esta función será llamada cuando el campo sea tocado o interactuado.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeImg"></a>
+                    <span class="name">
+                        <span ><b>removeImg</b></span>
+                        <a href="#removeImg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeImg()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="434"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:434</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina la vista previa de la imagen y restablece el valor del campo de entrada.</p>
+<p>Este método se utiliza para eliminar la vista previa de la imagen cargada y restablecer el valor del campo de entrada. Establece la propiedad <code>imagePreview</code> en <code>null</code>, emite el evento <code>valueChange</code> para notificar que el valor ha cambiado, y restablece la propiedad <code>value</code> a una cadena vacía.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="writeValue"></a>
+                    <span class="name">
+                        <span ><b>writeValue</b></span>
+                        <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>writeValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="353"
+                                    class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:353</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Escribe un valor en el componente.</p>
+<p>Este método es parte de la interfaz <code>ControlValueAccessor</code> y se utiliza para escribir un valor en el componente. El valor proporcionado se asigna a la propiedad interna del componente que representa el valor del campo. En la implementación actual, el método está vacío y no realiza ninguna acción. Debe ser implementado para sincronizar el valor del componente con el valor proporcionado por el modelo de datos.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El valor que se debe escribir en el componente.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faQuestion"></a>
+                    <span class="name">
+                        <span ><b>faQuestion</b></span>
+                        <a href="#faQuestion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faQuestion</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Icono de tipo pregunta.</p>
+<p>Esta propiedad almacena el ícono de tipo pregunta utilizado en la interfaz de usuario.
+Es una instancia de un ícono de FontAwesome que se usa para representar consultas o
+proporcionar información adicional en la aplicación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getObjectValue"></a>
+                    <span class="name">
+                        <span ><b>getObjectValue</b></span>
+                        <a href="#getObjectValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>getObjectValue</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función para obtener el valor de un objeto.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imagePreview"></a>
+                    <span class="name">
+                        <span ><b>imagePreview</b></span>
+                        <a href="#imagePreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | ArrayBuffer | null | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="395" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:395</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Previsualización de la imagen cargada.</p>
+<p>Esta propiedad almacena la representación de la imagen que se ha cargado,
+que puede ser una URL, un <code>ArrayBuffer</code>, <code>null</code>, o <code>undefined</code>.
+Se utiliza para mostrar una previsualización de la imagen antes de ser enviada o procesada.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="innerValue"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>innerValue</b></span>
+                        <a href="#innerValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="252" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:252</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Valor interno utilizado para almacenar el valor del campo de entrada.</p>
+<p>Esta propiedad se utiliza internamente para mantener el valor actual del campo de entrada. Inicialmente se establece como una cadena vacía.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inputElementRef"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>inputElementRef</b></span>
+                        <a href="#inputElementRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLInputElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;inID&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPassword"></a>
+                    <span class="name">
+                        <span ><b>isPassword</b></span>
+                        <a href="#isPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Esta propiedad determina si el campo de entrada se debe mostrar como una contraseña
+en lugar de texto normal. Cuando <code>isPassword</code> es <code>true</code>, el campo de entrada oculta
+el texto ingresado, mostrándolo como puntos o asteriscos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapDataTypeInputType"></a>
+                    <span class="name">
+                        <span ><b>mapDataTypeInputType</b></span>
+                        <a href="#mapDataTypeInputType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mapDataTypeInputType</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mapa de tipos de entrada de datos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChange"></a>
+                    <span class="name">
+                        <span ><b>onChange</b></span>
+                        <a href="#onChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="282" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:282</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función de cambio que se ejecuta cuando ocurre un cambio.</p>
+<p>Esta propiedad almacena una función que se ejecuta cuando se produce un cambio. En su implementación actual, la función simplemente imprime &#39;algo&#39; en la consola. Puede ser reemplazada o extendida para manejar eventos de cambio más específicos según sea necesario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTouched"></a>
+                    <span class="name">
+                        <span ><b>onTouched</b></span>
+                        <a href="#onTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="295" class="link-to-prism">src/app/lib/widgets/ag-input/ag-input.component.ts:295</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que se ejecuta cuando el campo ha sido tocado.</p>
+<p>Esta propiedad almacena una función que se invoca cuando el campo de entrada es tocado o interactuado. En su implementación actual, la función está vacía. Esta función puede ser reemplazada o extendida para manejar eventos relacionados con el campo que ha sido tocado, como la validación o la actualización del estado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild, forwardRef } from &#x27;@angular/core&#x27;;
+import { ApiSearchInterface } from &#x27;../../interfaces/ApiSearchGroupInterface&#x27;;
+import { ApiService } from &#x27;../../functions/api.service&#x27;;
+import { environment } from &#x27;../../../../environments/environment.development&#x27;;
+import { getBaseApiSearchInterface, generateFormattedOptionsString } from &#x27;../../functions/functions&#x27;;
+import { mapDataTypeInputType, getObjectValue } from &#x27;../../functions/functions&#x27;;
+import { faQuestion } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
+import { NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { Icon } from &#x27;@fortawesome/fontawesome-svg-core&#x27;;
+
+/**
+ * Componente &#x60;AgInputComponent&#x60;
+ * 
+ * El componente &#x60;AgInputComponent&#x60; es un control de entrada reutilizable que se puede utilizar para capturar datos de usuario en formularios. Ofrece soporte para diferentes tipos de campos de entrada, incluyendo texto, contraseñas y archivos, y proporciona funcionalidades adicionales como previsualización de imágenes y manejo de eventos de entrada y cambio de archivos. 
+ * 
+ * **Características principales:**
+ * - **Tipo de entrada**: Permite diferentes tipos de campos de entrada como texto, contraseñas y archivos.
+ * - **Previsualización de imágenes**: Soporta la carga y previsualización de imágenes antes de su envío.
+ * - **Eventos**: Emite eventos para cambios de valor y archivos, y para la apertura de modales de búsqueda.
+ * - **Soporte para formularios**: Compatible con la interfaz &#x60;ControlValueAccessor&#x60; para integrarse con formularios Angular.
+ * 
+ * **Uso**:
+ * Este componente se puede utilizar en formularios para capturar datos del usuario, manejar la visibilidad de contraseñas y previsualizar archivos seleccionados. También es compatible con la integración de modales de búsqueda para opciones dinámicas o predefinidas.
+ * 
+ * @component
+ * @memberof AgInputComponent
+ */
+@Component({
+  selector: &#x27;ag-input&#x27;,
+  standalone: true,
+  imports: [CommonModule, FontAwesomeModule, FormsModule, MatIconModule],
+  templateUrl: &#x27;./ag-input.component.html&#x27;,
+  styleUrl: &#x27;./ag-input.component.css&#x27;,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() &#x3D;&gt; AgInputComponent),
+      multi: true,
+    },
+  ],
+  
+})
+export class AgInputComponent implements OnInit {
+
+  @ViewChild(&#x27;inID&#x27;) inputElementRef!: ElementRef&lt;HTMLInputElement&gt;;
+
+  /**
+   * Mapa de tipos de entrada de datos.
+   * 
+   * @memberof AgInputComponent
+   */
+  mapDataTypeInputType &#x3D; mapDataTypeInputType
+  /**
+ * Icono de tipo pregunta.
+ * 
+ * Esta propiedad almacena el ícono de tipo pregunta utilizado en la interfaz de usuario.
+ * Es una instancia de un ícono de FontAwesome que se usa para representar consultas o 
+ * proporcionar información adicional en la aplicación.
+ * 
+ * @type {IconDefinition}
+ * @memberof AgInputComponent
+ */
+  faQuestion &#x3D; faQuestion
+  /**
+   * Función para obtener el valor de un objeto.
+   * 
+   * @memberof AgInputComponent
+   */
+  getObjectValue &#x3D; getObjectValue
+  /**
+ * Esta propiedad determina si el campo de entrada se debe mostrar como una contraseña 
+ * en lugar de texto normal. Cuando &#x60;isPassword&#x60; es &#x60;true&#x60;, el campo de entrada oculta 
+ * el texto ingresado, mostrándolo como puntos o asteriscos.
+ * 
+ * @type {boolean}
+ * @default false
+ * @memberof AgFormComponent
+ */
+  isPassword:boolean &#x3D; false
+
+  // @Input() openSearchModal?: Function
+
+  /**
+ * Etiqueta que se mostrará para el campo del formulario.
+ * 
+ * Esta propiedad define el texto que se utiliza como etiqueta para el campo del formulario.
+ * Si no se proporciona una etiqueta, el campo se mostrará sin texto asociado. 
+ * La etiqueta puede ser utilizada para describir o dar contexto al propósito del campo.
+ * 
+ * @type {string}
+ * @default &quot;&quot;
+ * @memberof AgInputComponent
+ */
+  @Input() label?: string &#x3D; &quot;&quot;;
+  /**
+   * Tipo de campo de entrada (por ejemplo, texto, archivo).
+   * 
+   * @memberof AgInputComponent
+   * @type {string}
+   */
+  @Input() type?: string &#x3D; &quot;&quot;;
+  /**
+   * Nombre del campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @type {string}
+   */
+  @Input() name: string &#x3D; &quot;&quot;;
+  /**
+   * Valor del campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @type {any}
+   */
+  @Input() value: any;
+  /**
+   * Estado de solo lectura del campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @type {any}
+   */
+  @Input() readOnly: any;
+  /**
+   * Detalle adicional o descripción para el campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @type {string}
+   */
+  @Input() detail: string &#x3D; &quot;&quot;;
+  /**
+   * Tipo de archivo aceptado por el campo de entrada (por ejemplo, &#x27;image/*&#x27;).
+   * 
+   * @memberof AgInputComponent
+   * @type {string}
+   */
+  @Input() accept?: string &#x3D; &quot;&quot;
+  /**
+   * Tabla utilizada para la búsqueda en el campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @type {string}
+   */
+  @Input() search_table?: string &#x3D; &quot;&quot;;
+  /**
+   * Índice utilizado para la búsqueda en el campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @type {number}
+   */
+  @Input() search_index?: number;
+  /**
+   * Criterios de búsqueda de la API para el campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @type {ApiSearchInterface}
+   */
+  @Input() api_search_criteria_group?: ApiSearchInterface;
+  /**
+   * Estado de validez del campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @type {boolean}
+   */
+  @Input() isValid?: boolean;
+
+  /**
+   * Evento emitido cuando cambia el valor del campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @event
+   * @type {EventEmitter&lt;any&gt;}
+   */
+  @Output() valueChange: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  /**
+   * Evento emitido cuando cambia un archivo en el campo de entrada.
+   * 
+   * @memberof AgInputComponent
+   * @event
+   * @type {EventEmitter&lt;any&gt;}
+   */
+  @Output() fileChange: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  /**
+ * Evento emitido para abrir el modal de búsqueda.
+ * 
+ * Este evento puede ser utilizado para desencadenar la apertura de un modal de búsqueda. Dependiendo de la configuración del componente, 
+ * el modal puede presentar opciones de selección de dos maneras:
+ * 
+ * - **Conjunto predefinido**: Opciones proporcionadas como pares clave-valor (&#x60;{ &quot;value&quot;: &quot;text&quot; }&#x60;), donde &quot;value&quot; es el valor que se enviará al seleccionar una opción y &quot;text&quot; es el texto visible en la interfaz de usuario.
+ * - **Desde API**: Opciones dinámicamente obtenidas a través de una solicitud a una API, permitiendo que las opciones se adapten a datos externos.
+ * 
+ * @memberof AgInputComponent
+ * @event
+ * @type {EventEmitter&lt;any&gt;}
+ */
+  @Output() openSearchModal: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;()
+
+  public constructor( private apiService: ApiService, private cdr: ChangeDetectorRef,){
+
+  }
+  
+  ngOnInit(): void { }
+
+  ngAfterViewInit(): void {
+    // Aseguramos que el input es de tipo &#x27;password&#x27; al cargar la vista si corresponde
+    if (this.type &#x3D;&#x3D;&#x3D; &#x27;password&#x27; &amp;&amp; this.inputElementRef &amp;&amp; this.inputElementRef.nativeElement) {
+      this.inputElementRef.nativeElement.type &#x3D; &#x27;password&#x27;;
+    }
+  }
+
+  /**
+ * Despliega el modal de búsqueda y emite un evento con el índice de búsqueda.
+ * 
+ * Este método se encarga de emitir el evento &#x60;openSearchModal&#x60; con el &#x60;search_index&#x60; actual. El evento puede ser utilizado para abrir un modal de búsqueda que utiliza el índice proporcionado para realizar una búsqueda específica. 
+ * 
+ * @memberof AgInputComponent
+ * @method desplegarModal
+ * @param {void} 
+ */
+  desplegarModal(){ // Nombre de método inconsistente
+    this.openSearchModal.emit(this.search_index)
+  }
+  
+  /**
+ * Cambia el estado de visibilidad del campo de contraseña.
+ * 
+ * @Description Este método alterna el estado de visibilidad del campo de entrada entre tipo &#x60;password&#x60; y &#x60;text&#x60;. Cuando &#x60;isPassword&#x60; es &#x60;true&#x60;, el campo se configura para ocultar el texto ingresado (tipo &#x60;password&#x60;). Cuando &#x60;isPassword&#x60; es &#x60;false&#x60;, el campo se configura para mostrar el texto ingresado (tipo &#x60;text&#x60;).
+ * 
+ * @memberof AgInputComponent
+ * @method changePassState
+ * @param {T.type} T.type - Tipo de campo de entrada que se actualizará a &#x60;password&#x60; o &#x60;text&#x60; basado en el estado actual.
+ */
+  changePassState(){
+    this.isPassword &#x3D; !this.isPassword;
+    if (this.inputElementRef &amp;&amp; this.inputElementRef.nativeElement) {
+      this.inputElementRef.nativeElement.type &#x3D; this.isPassword ? &#x27;password&#x27; : &#x27;text&#x27;;
+    }
+  }
+
+  /**
+ * Valor interno utilizado para almacenar el valor del campo de entrada.
+ * 
+ * Esta propiedad se utiliza internamente para mantener el valor actual del campo de entrada. Inicialmente se establece como una cadena vacía.
+ * 
+ * @memberof AgInputComponent
+ * @type {any}
+ * @private
+ */
+  private innerValue: any &#x3D; &#x27;&#x27;;
+
+  /**
+ * Maneja el cambio de valor en el campo de entrada.
+ * 
+ * Este método actualiza el valor del campo de entrada y emite un evento &#x60;valueChange&#x60; con el nuevo valor. Si el nuevo valor es una cadena vacía, también se llama al método &#x60;removeImg&#x60; para eliminar una imagen asociada, si corresponde.
+ * 
+ * @memberof AgInputComponent
+ * @method onValueChange
+ * @param {any} newValue - El nuevo valor del campo de entrada que se está actualizando.
+ * @fires valueChange - Emite el nuevo valor del campo de entrada.
+ */
+  onValueChange(newValue: any) {
+    this.value &#x3D; newValue;
+    this.valueChange.emit(this.value);
+    
+    if(newValue &#x3D;&#x3D; &#x27;&#x27;){
+      this.removeImg()
+    }
+  }
+
+  /**
+ * Función de cambio que se ejecuta cuando ocurre un cambio.
+ * 
+ * Esta propiedad almacena una función que se ejecuta cuando se produce un cambio. En su implementación actual, la función simplemente imprime &#x27;algo&#x27; en la consola. Puede ser reemplazada o extendida para manejar eventos de cambio más específicos según sea necesario.
+ * 
+ * @memberof AgInputComponent
+ * @type {Function}
+ * @default () &#x3D;&gt; { console.log(&#x27;algo&#x27;); }
+ */
+  onChange: any &#x3D; () &#x3D;&gt; {
+    console.log(&#x27;algo&#x27;)
+  };
+
+  /**
+ * Función que se ejecuta cuando el campo ha sido tocado.
+ * 
+ * Esta propiedad almacena una función que se invoca cuando el campo de entrada es tocado o interactuado. En su implementación actual, la función está vacía. Esta función puede ser reemplazada o extendida para manejar eventos relacionados con el campo que ha sido tocado, como la validación o la actualización del estado.
+ * 
+ * @memberof AgInputComponent
+ * @type {Function}
+ * @default () &#x3D;&gt; {}
+ */
+  onTouched: any &#x3D; () &#x3D;&gt; {};
+
+  /**
+ * Maneja el evento de entrada del campo de formulario.
+ * 
+ * Este método se ejecuta cuando ocurre un evento de entrada en el campo de formulario. Actualiza el valor del campo basado en la entrada del usuario y maneja la carga de archivos si se selecciona un archivo. Además, emite eventos &#x60;valueChange&#x60; y &#x60;fileChange&#x60; con el nuevo valor y el archivo seleccionado, respectivamente. Si se selecciona un archivo, también se lee y muestra una vista previa de la imagen.
+ * 
+ * @memberof AgInputComponent
+ * @method onInput
+ * @param {Event} event - El evento de entrada que contiene la información del campo de entrada.
+ * @fires valueChange - Emite el nuevo valor del campo de entrada.
+ * @fires fileChange - Emite el archivo seleccionado si existe.
+ */
+  onInput(event: Event): void {
+    const inputElement &#x3D; event.target as HTMLInputElement;
+    if (inputElement) {
+      this.value &#x3D; inputElement.value;
+
+      // Si se selecciona un archivo
+      if(inputElement.files !&#x3D; undefined){
+        const file &#x3D; inputElement.files[0];
+        if (file) {
+          const reader &#x3D; new FileReader();
+          reader.onload &#x3D; (e) &#x3D;&gt; {
+            this.imagePreview &#x3D; e.target?.result;
+          };
+          reader.readAsDataURL(file);
+          //this.value &#x3D; file;
+          this.valueChange.emit(this.value);
+          this.fileChange.emit(file)
+        }
+      }
+    }
+  }
+
+  /**
+ * Maneja el evento de desenfoque del campo de entrada.
+ * 
+ * Este método se llama cuando el campo de entrada pierde el enfoque. Invoca la función &#x60;onTouched&#x60; para manejar cualquier lógica asociada con el evento de desenfoque, como la validación del campo o la actualización del estado.
+ * 
+ * @memberof AgInputComponent
+ * @method onBlur
+ * @param {void}
+ */
+  onBlur() {
+    this.onTouched();
+  }
+
+  /**
+ * Escribe un valor en el componente.
+ * 
+ * Este método es parte de la interfaz &#x60;ControlValueAccessor&#x60; y se utiliza para escribir un valor en el componente. El valor proporcionado se asigna a la propiedad interna del componente que representa el valor del campo. En la implementación actual, el método está vacío y no realiza ninguna acción. Debe ser implementado para sincronizar el valor del componente con el valor proporcionado por el modelo de datos.
+ * 
+ * @memberof AgInputComponent
+ * @method writeValue
+ * @param {any} value - El valor que se debe escribir en el componente.
+ * @returns {void}
+ */
+  writeValue(value: any) {
+    // this.innerValue &#x3D; value;
+  }
+
+  /**
+ * Registra una función de cambio para el componente.
+ * 
+ * Este método es parte de la interfaz &#x60;ControlValueAccessor&#x60; y se utiliza para registrar una función de cambio que será llamada cuando el valor del componente cambie. La función proporcionada se asigna a la propiedad &#x60;onChange&#x60; del componente, que se invocará con el nuevo valor del campo cuando ocurra un cambio.
+ * 
+ * @memberof AgInputComponent
+ * @method registerOnChange
+ * @param {Function} fn - La función de cambio que se debe registrar. Esta función será llamada con el nuevo valor del campo cuando ocurra un cambio.
+ * @returns {void}
+ */
+  registerOnChange(fn: any) {
+    this.onChange &#x3D; fn;
+  }
+
+  /**
+ * Registra una función que se llama cuando el campo es tocado.
+ * 
+ * Este método es parte de la interfaz &#x60;ControlValueAccessor&#x60; y se utiliza para registrar una función que será llamada cuando el campo de entrada sea tocado o interactuado. La función proporcionada se asigna a la propiedad &#x60;onTouched&#x60; del componente, la cual se invocará para manejar la lógica asociada con el evento de desenfoque.
+ * 
+ * @memberof AgInputComponent
+ * @method registerOnTouched
+ * @param {Function} fn - La función que se debe registrar. Esta función será llamada cuando el campo sea tocado o interactuado.
+ * @returns {void}
+ */
+  registerOnTouched(fn: any) {
+    this.onTouched &#x3D; fn;
+  }
+
+  /**
+ * Previsualización de la imagen cargada.
+ * 
+ * Esta propiedad almacena la representación de la imagen que se ha cargado,
+ * que puede ser una URL, un &#x60;ArrayBuffer&#x60;, &#x60;null&#x60;, o &#x60;undefined&#x60;.
+ * Se utiliza para mostrar una previsualización de la imagen antes de ser enviada o procesada.
+ * 
+ * @type {string | ArrayBuffer | null | undefined}
+ * @memberof AgInputComponent
+ */
+  imagePreview: string | ArrayBuffer | null | undefined;
+
+  /**
+ * Maneja el cambio de archivo en el campo de entrada.
+ * 
+ * Este método se ejecuta cuando se selecciona un archivo en el campo de entrada. Lee el archivo utilizando un &#x60;FileReader&#x60; para generar una vista previa de la imagen y la asigna a la propiedad &#x60;imagePreview&#x60;. Además, emite eventos &#x60;valueChange&#x60; y &#x60;fileChange&#x60; con el nuevo valor del campo de entrada y el archivo seleccionado, respectivamente.
+ * 
+ * @memberof AgInputComponent
+ * @method onFileChange
+ * @param {Event} event - El evento de cambio que contiene el archivo seleccionado.
+ * @returns {void}
+ * @fires valueChange - Emite el valor actualizado del campo de entrada.
+ * @fires fileChange - Emite el archivo seleccionado.
+ */
+  onFileChange(event: any) {
+    const file &#x3D; event.target.files[0];
+    if (file) {
+      const reader &#x3D; new FileReader();
+      reader.onload &#x3D; (e) &#x3D;&gt; {
+        this.imagePreview &#x3D; e.target?.result;
+      };
+      reader.readAsDataURL(file);
+      //this.value &#x3D; file;
+      this.valueChange.emit(this.value);
+      this.fileChange.emit(this.value);
+      
+    }
+  }
+
+  /**
+ * Elimina la vista previa de la imagen y restablece el valor del campo de entrada.
+ * 
+ * Este método se utiliza para eliminar la vista previa de la imagen cargada y restablecer el valor del campo de entrada. Establece la propiedad &#x60;imagePreview&#x60; en &#x60;null&#x60;, emite el evento &#x60;valueChange&#x60; para notificar que el valor ha cambiado, y restablece la propiedad &#x60;value&#x60; a una cadena vacía.
+ * 
+ * @memberof AgInputComponent
+ * @method removeImg
+ * @returns {void}
+ * @fires valueChange - Emite el valor actualizado del campo de entrada después de eliminar la imagen.
+ */
+  removeImg(){
+    this.imagePreview &#x3D; null
+    this.valueChange.emit();
+    this.value &#x3D; &quot;&quot;;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;input-container w-100&quot;&gt;
+    &lt;input #inID [type]&#x3D;&quot;getObjectValue(mapDataTypeInputType,type!)&quot; [class]&#x3D;&quot;&#x27;modern-input w-100 &#x27; + (isValid ? &#x27;&#x27; : &#x27;non-valid&#x27;)&quot;  [name]&#x3D;&quot;name&quot; [value]&#x3D;&quot;value&quot;
+    (input)&#x3D;&quot;onInput($event)&quot; [(ngModel)]&#x3D;&quot;value&quot; (ngModelChange)&#x3D;&quot;onValueChange($event)&quot; [accept]&#x3D;&quot;accept&quot; [readOnly]&#x3D;&quot;readOnly&quot;/&gt;
+    &lt;label class&#x3D;&quot;input-label&quot;&gt;{{ label }} &lt;/label&gt;
+    &lt;button *ngIf&#x3D;&quot;search_table !&#x3D; &#x27;&#x27;&quot; class&#x3D;&quot;search-button&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;desplegarModal()&quot;&gt;
+        &lt;mat-icon&gt;search&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;button *ngIf&#x3D;&quot;type &#x3D;&#x3D;&#x3D; &#x27;password&#x27;&quot; class&#x3D;&quot;pass-button&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;changePassState()&quot;&gt;
+        &lt;mat-icon&gt;{{ isPassword ? &quot;visibility_off&quot; : &quot;visibility&quot; }}&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;mat-icon *ngIf&#x3D;&quot;type &#x3D;&#x3D; &#x27;file&#x27;&quot; class&#x3D;&quot;fileIcon&quot;&gt;upload_file&lt;/mat-icon&gt;
+    &lt;fa-icon [icon]&#x3D;&quot;faQuestion&quot; *ngIf&#x3D;&quot;detail !&#x3D; &#x27;&#x27;&quot; data-bs-toggle&#x3D;&quot;tooltip&quot; data-bs-placement&#x3D;&quot;bottom&quot; [title]&#x3D;&quot;detail&quot; class&#x3D;&quot;ag-input-tooltip&quot;&gt;&lt;/fa-icon&gt;
+    &lt;fa-icon [icon]&#x3D;&quot;faQuestion&quot; *ngIf&#x3D;&quot;readOnly&quot; data-bs-toggle&#x3D;&quot;tooltip&quot; data-bs-placement&#x3D;&quot;bottom&quot; [title]&#x3D;&quot;&#x27;Sólo lectura&#x27;&quot; class&#x3D;&quot;ag-input-tooltip&quot;&gt;&lt;/fa-icon&gt;
+&lt;/div&gt;
+&lt;p *ngIf&#x3D;&quot;type &#x3D;&#x3D; &#x27;password&#x27;&quot; class&#x3D;&quot;mt-0&quot;&gt;Olvidé mi contraseña&lt;/p&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="input-container w-100">    <input #inID [type]="getObjectValue(mapDataTypeInputType,type!)" [class]="\'modern-input w-100 \' + (isValid ? \'\' : \'non-valid\')"  [name]="name" [value]="value"    (input)="onInput($event)" [(ngModel)]="value" (ngModelChange)="onValueChange($event)" [accept]="accept" [readOnly]="readOnly"/>    <label class="input-label">{{ label }} </label>    <button *ngIf="search_table != \'\'" class="search-button" type="button" (click)="desplegarModal()">        <mat-icon>search</mat-icon>    </button>    <button *ngIf="type === \'password\'" class="pass-button" type="button" (click)="changePassState()">        <mat-icon>{{ isPassword ? "visibility_off" : "visibility" }}</mat-icon>    </button>    <mat-icon *ngIf="type == \'file\'" class="fileIcon">upload_file</mat-icon>    <fa-icon [icon]="faQuestion" *ngIf="detail != \'\'" data-bs-toggle="tooltip" data-bs-placement="bottom" [title]="detail" class="ag-input-tooltip"></fa-icon>    <fa-icon [icon]="faQuestion" *ngIf="readOnly" data-bs-toggle="tooltip" data-bs-placement="bottom" [title]="\'Sólo lectura\'" class="ag-input-tooltip"></fa-icon></div><p *ngIf="type == \'password\'" class="mt-0">Olvidé mi contraseña</p></div>'
+    var COMPONENTS = [{'name': 'AgAlertsComponent', 'selector': 'ag-alerts'},{'name': 'AgAutocompleteComponent', 'selector': 'ag-autocomplete'},{'name': 'AgChartComponent', 'selector': 'ag-chart'},{'name': 'AgChildDynamicInputComponent', 'selector': 'ag-child-dynamic-input'},{'name': 'AgChildFormComponent', 'selector': 'ag-child-form'},{'name': 'AgContextMenuComponent', 'selector': 'app-context-menu'},{'name': 'AgCreateFormComponent', 'selector': 'ag-create-form'},{'name': 'AgDynamicInputComponent', 'selector': 'ag-dynamic-input'},{'name': 'AgFormComponent', 'selector': 'ag-form'},{'name': 'AgIndicadoresCalculados', 'selector': 'app-template'},{'name': 'AgIndicatorsComponent', 'selector': 'app-ag-indicators'},{'name': 'AgIndicatorsMachinesComponent', 'selector': 'app-template'},{'name': 'AgInputComponent', 'selector': 'ag-input'},{'name': 'AgLoginComponent', 'selector': 'ag-login'},{'name': 'AgLoginFormComponent', 'selector': 'ag-login-form'},{'name': 'AgLogoComponent', 'selector': 'app-ag-logo'},{'name': 'AgModalComponent', 'selector': 'ag-modal'},{'name': 'AgModelosIndicadoresComponent', 'selector': 'app-ag-modelos-indicadores'},{'name': 'AgNavbarComponent', 'selector': 'ag-navbar'},{'name': 'AgPermissionsComponent', 'selector': 'app-ag-permissions'},{'name': 'AgPopupAlertComponent', 'selector': 'ag-popup-alert'},{'name': 'AgRegisterFormComponent', 'selector': 'ag-register-form'},{'name': 'AgRelationsComponent', 'selector': 'app-ag-relations'},{'name': 'AgReportsComponent', 'selector': 'app-ag-reports'},{'name': 'AgSearchComponent', 'selector': 'ag-search'},{'name': 'AgSelectComponent', 'selector': 'ag-select'},{'name': 'AgSocialMediaComponent', 'selector': 'app-ag-social-media'},{'name': 'AgSubmenusComponent', 'selector': 'ag-submenus'},{'name': 'AgTableComponent', 'selector': 'ag-table'},{'name': 'AgTableschemaComponent', 'selector': 'app-ag-tableschema'},{'name': 'AgTimerComponent', 'selector': 'ag-timer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChequeoAutoelevadorComponent', 'selector': 'app-chequeo-autoelevador'},{'name': 'GenerateIndicatorsComponent', 'selector': 'app-ag-indicators-charts'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'PaletteComponent', 'selector': 'app-palette'},{'name': 'TemplateComponent', 'selector': 'app-template'}];
+    var DIRECTIVES = [{'name': 'BaseDynamicInputComponent', 'selector': ''},{'name': 'BaseFormComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'AgInputComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AgInputComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

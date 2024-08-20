@@ -1,0 +1,900 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agronorte-lib-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">agronorte-lib-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AgModelosIndicadoresComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para la gestión de modelos e indicadores.</p>
+<p>Este componente proporciona funcionalidades para la visualización y manipulación de datos relacionados
+con modelos y máquinas, incluyendo formularios, búsquedas y tablas.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-ag-modelos-indicadores</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/AgFormComponent.html" target="_self" >AgFormComponent</a></code>
+                                <code><a href="../components/AgSearchComponent.html" target="_self" >AgSearchComponent</a></code>
+                                <code><a href="../components/AgTableComponent.html" target="_self" >AgTableComponent</a></code>
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ag-modelos-indicadores.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./ag-modelos-indicadores.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#environment" >environment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#FORM_MODELOS_MAQUINAS" >FORM_MODELOS_MAQUINAS</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarResultadosTablaModelosMaquinas" >mostrarResultadosTablaModelosMaquinas</a>
+                            </li>
+                            <li>
+                                <a href="#reveal_form" >reveal_form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#tabla_modelos_maquinas" >tabla_modelos_maquinas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#tabla_modelos_maquinas_api_search_group" >tabla_modelos_maquinas_api_search_group</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#loadIntoForm" >loadIntoForm</a>
+                            </li>
+                            <li>
+                                <a href="#update_tabla_paquetesisg_search_interface" >update_tabla_paquetesisg_search_interface</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadIntoForm"></a>
+                    <span class="name">
+                        <span ><b>loadIntoForm</b></span>
+                        <a href="#loadIntoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadIntoForm(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja la carga de datos en el formulario.</p>
+<p>Muestra el formulario y asigna los datos del evento a la propiedad <code>form_object</code> del componente <code>AgFormComponent</code>.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Datos recibidos que se asignarán al formulario.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update_tabla_paquetesisg_search_interface"></a>
+                    <span class="name">
+                        <span ><b>update_tabla_paquetesisg_search_interface</b></span>
+                        <a href="#update_tabla_paquetesisg_search_interface"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>update_tabla_paquetesisg_search_interface(apiSearchInterface: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la configuración de búsqueda de la tabla de modelos y máquinas.</p>
+<p>Establece la interfaz de búsqueda y reinicia la página actual de la tabla, luego llama a la función de búsqueda.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>apiSearchInterface</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Interfaz de búsqueda para la tabla.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Entorno de la aplicación.</p>
+<p>Proporciona acceso a las variables y configuraciones del entorno de la aplicación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FORM_MODELOS_MAQUINAS"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>FORM_MODELOS_MAQUINAS</b></span>
+                        <a href="#FORM_MODELOS_MAQUINAS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgFormComponent.html" target="_self" >AgFormComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;FORM_MODELOS_MAQUINAS&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al componente de formulario para modelos y máquinas.</p>
+<p>Utiliza <code>@ViewChild</code> para obtener una referencia al componente <code>AgFormComponent</code> definido en la plantilla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarResultadosTablaModelosMaquinas"></a>
+                    <span class="name">
+                        <span ><b>mostrarResultadosTablaModelosMaquinas</b></span>
+                        <a href="#mostrarResultadosTablaModelosMaquinas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Bandera para mostrar o ocultar los resultados en la tabla de modelos y máquinas.</p>
+<p>Inicialmente establecido en <code>false</code>. El nombre de esta propiedad es inconsistente y se recomienda revisar.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reveal_form"></a>
+                    <span class="name">
+                        <span ><b>reveal_form</b></span>
+                        <a href="#reveal_form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable de estado para revelar u ocultar el formulario.</p>
+<p>Inicialmente establecido en <code>false</code>. Controla la visibilidad del formulario basado en la lógica de la aplicación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabla_modelos_maquinas"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>tabla_modelos_maquinas</b></span>
+                        <a href="#tabla_modelos_maquinas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgTableComponent.html" target="_self" >AgTableComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;tabla_modelos_maquinas&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al componente de tabla para modelos y máquinas.</p>
+<p>Utiliza <code>@ViewChild</code> para obtener una referencia al componente <code>AgTableComponent</code> definido en la plantilla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabla_modelos_maquinas_api_search_group"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>tabla_modelos_maquinas_api_search_group</b></span>
+                        <a href="#tabla_modelos_maquinas_api_search_group"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ApiSearchInterface.html" target="_self" >ApiSearchInterface</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/lib/menus/admin/ag-modelos-indicadores/ag-modelos-indicadores.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Configuración del grupo de búsqueda para la tabla de modelos y máquinas.</p>
+<p>Almacena la interfaz de búsqueda que se utiliza para realizar consultas en la tabla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { AgFormComponent } from &#x27;../../../widgets/ag-form/ag-form.component&#x27;;
+import { environment } from &#x27;../../../../../environments/environment.development&#x27;;
+import { AgSearchComponent } from &#x27;../../../widgets/ag-search/ag-search.component&#x27;;
+import { ApiSearchInterface } from &#x27;../../../interfaces/ApiSearchGroupInterface&#x27;;
+import { AgTableComponent } from &#x27;../../../widgets/ag-table/ag-table.component&#x27;;
+
+/**
+ * Componente para la gestión de modelos e indicadores.
+ * 
+ * Este componente proporciona funcionalidades para la visualización y manipulación de datos relacionados
+ * con modelos y máquinas, incluyendo formularios, búsquedas y tablas.
+ * 
+ * @component
+ * @memberof AgModelosIndicadoresComponent
+ */
+@Component({
+  selector: &#x27;app-ag-modelos-indicadores&#x27;,
+  standalone: true,
+  imports: [AgFormComponent, AgSearchComponent, AgTableComponent, CommonModule],
+  templateUrl: &#x27;./ag-modelos-indicadores.component.html&#x27;,
+  styleUrl: &#x27;./ag-modelos-indicadores.component.css&#x27;
+})
+export class AgModelosIndicadoresComponent {
+
+  /**
+   * Entorno de la aplicación.
+   * 
+   * Proporciona acceso a las variables y configuraciones del entorno de la aplicación.
+   * 
+   * @type {any}
+   * @memberof AgModelosIndicadoresComponent
+   */
+  environment &#x3D; environment
+
+  /**
+   * Referencia al componente de formulario para modelos y máquinas.
+   * 
+   * Utiliza &#x60;@ViewChild&#x60; para obtener una referencia al componente &#x60;AgFormComponent&#x60; definido en la plantilla.
+   * 
+   * @type {AgFormComponent | undefined}
+   * @memberof AgModelosIndicadoresComponent
+   */
+  @ViewChild(&#x27;FORM_MODELOS_MAQUINAS&#x27;) FORM_MODELOS_MAQUINAS?: AgFormComponent
+  
+  /**
+   * Referencia al componente de tabla para modelos y máquinas.
+   * 
+   * Utiliza &#x60;@ViewChild&#x60; para obtener una referencia al componente &#x60;AgTableComponent&#x60; definido en la plantilla.
+   * 
+   * @type {AgTableComponent | undefined}
+   * @memberof AgModelosIndicadoresComponent
+   */
+  @ViewChild(&#x27;tabla_modelos_maquinas&#x27;) tabla_modelos_maquinas?: AgTableComponent
+
+  /**
+   * Configuración del grupo de búsqueda para la tabla de modelos y máquinas.
+   * 
+   * Almacena la interfaz de búsqueda que se utiliza para realizar consultas en la tabla.
+   * 
+   * @type {ApiSearchInterface | undefined}
+   * @memberof AgModelosIndicadoresComponent
+   */
+  tabla_modelos_maquinas_api_search_group?: ApiSearchInterface
+
+  /**
+   * Actualiza la configuración de búsqueda de la tabla de modelos y máquinas.
+   * 
+   * Establece la interfaz de búsqueda y reinicia la página actual de la tabla, luego llama a la función de búsqueda.
+   * 
+   * @param {any} apiSearchInterface - Interfaz de búsqueda para la tabla.
+   * @memberof AgModelosIndicadoresComponent
+   */
+  update_tabla_paquetesisg_search_interface(apiSearchInterface: any){
+
+    this.tabla_modelos_maquinas_api_search_group &#x3D; apiSearchInterface
+    this.tabla_modelos_maquinas!.currentPage &#x3D; 1
+    this.tabla_modelos_maquinas?.callSearch()
+
+  }
+
+  /**
+   * Bandera para mostrar o ocultar los resultados en la tabla de modelos y máquinas.
+   * 
+   * Inicialmente establecido en &#x60;false&#x60;. El nombre de esta propiedad es inconsistente y se recomienda revisar.
+   * 
+   * @type {boolean}
+   * @memberof AgModelosIndicadoresComponent
+   */
+  mostrarResultadosTablaModelosMaquinas &#x3D; false //Nombre inconsistente
+
+  /**
+   * Maneja la carga de datos en el formulario.
+   * 
+   * Muestra el formulario y asigna los datos del evento a la propiedad &#x60;form_object&#x60; del componente &#x60;AgFormComponent&#x60;.
+   * 
+   * @param {any} event - Datos recibidos que se asignarán al formulario.
+   * @memberof AgModelosIndicadoresComponent
+   */
+  loadIntoForm(event: any){
+    this.reveal_form &#x3D; true
+    setTimeout(() &#x3D;&gt; {
+      this.FORM_MODELOS_MAQUINAS!.form_object &#x3D; event
+    }, 250);
+  }
+
+  /**
+   * Variable de estado para revelar u ocultar el formulario.
+   * 
+   * Inicialmente establecido en &#x60;false&#x60;. Controla la visibilidad del formulario basado en la lógica de la aplicación.
+   * 
+   * @type {boolean}
+   * @memberof AgModelosIndicadoresComponent
+   */
+  reveal_form &#x3D; false
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ag-form #FORM_TABLA_MODELOS_MAQUINAS [formDefinition]&#x3D;&quot;&#x27;FORM_TABLA_MODELOS_MAQUINAS&#x27;&quot; [endpoint]&#x3D;&quot;environment.URL_BACKEND+&#x27;/modelos_maquinas&#x27;&quot; [reveal]&#x3D;&quot;true&quot;&gt;&lt;/ag-form&gt;
+&lt;ag-search [simplified]&#x3D;&quot;true&quot; [tableKeyName]&#x3D;&quot;&#x27;tabla_modelos_maquinas&#x27;&quot; [formRef]&#x3D;&quot;FORM_TABLA_MODELOS_MAQUINAS&quot;/&gt;
+&lt;ag-table (onSelectedItem)&#x3D;&quot;loadIntoForm($event)&quot; *ngIf&#x3D;&quot;mostrarResultadosTablaModelosMaquinas&quot; #tabla_modelos_maquinas [tableKeyName]&#x3D;&quot;&#x27;tabla_modelos_maquinas&#x27;&quot; [pageSize]&#x3D;&quot;10&quot; [api_search_criteria_group]&#x3D;&quot;tabla_modelos_maquinas_api_search_group&quot;/&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ag-form #FORM_TABLA_MODELOS_MAQUINAS [formDefinition]="\'FORM_TABLA_MODELOS_MAQUINAS\'" [endpoint]="environment.URL_BACKEND+\'/modelos_maquinas\'" [reveal]="true"></ag-form><ag-search [simplified]="true" [tableKeyName]="\'tabla_modelos_maquinas\'" [formRef]="FORM_TABLA_MODELOS_MAQUINAS"/><ag-table (onSelectedItem)="loadIntoForm($event)" *ngIf="mostrarResultadosTablaModelosMaquinas" #tabla_modelos_maquinas [tableKeyName]="\'tabla_modelos_maquinas\'" [pageSize]="10" [api_search_criteria_group]="tabla_modelos_maquinas_api_search_group"/></div>'
+    var COMPONENTS = [{'name': 'AgAlertsComponent', 'selector': 'ag-alerts'},{'name': 'AgAutocompleteComponent', 'selector': 'ag-autocomplete'},{'name': 'AgChartComponent', 'selector': 'ag-chart'},{'name': 'AgChildDynamicInputComponent', 'selector': 'ag-child-dynamic-input'},{'name': 'AgChildFormComponent', 'selector': 'ag-child-form'},{'name': 'AgContextMenuComponent', 'selector': 'app-context-menu'},{'name': 'AgCreateFormComponent', 'selector': 'ag-create-form'},{'name': 'AgDynamicInputComponent', 'selector': 'ag-dynamic-input'},{'name': 'AgFormComponent', 'selector': 'ag-form'},{'name': 'AgIndicadoresCalculados', 'selector': 'app-template'},{'name': 'AgIndicatorsComponent', 'selector': 'app-ag-indicators'},{'name': 'AgIndicatorsMachinesComponent', 'selector': 'app-template'},{'name': 'AgInputComponent', 'selector': 'ag-input'},{'name': 'AgLoginComponent', 'selector': 'ag-login'},{'name': 'AgLoginFormComponent', 'selector': 'ag-login-form'},{'name': 'AgLogoComponent', 'selector': 'app-ag-logo'},{'name': 'AgModalComponent', 'selector': 'ag-modal'},{'name': 'AgModelosIndicadoresComponent', 'selector': 'app-ag-modelos-indicadores'},{'name': 'AgNavbarComponent', 'selector': 'ag-navbar'},{'name': 'AgPermissionsComponent', 'selector': 'app-ag-permissions'},{'name': 'AgPopupAlertComponent', 'selector': 'ag-popup-alert'},{'name': 'AgRegisterFormComponent', 'selector': 'ag-register-form'},{'name': 'AgRelationsComponent', 'selector': 'app-ag-relations'},{'name': 'AgReportsComponent', 'selector': 'app-ag-reports'},{'name': 'AgSearchComponent', 'selector': 'ag-search'},{'name': 'AgSelectComponent', 'selector': 'ag-select'},{'name': 'AgSocialMediaComponent', 'selector': 'app-ag-social-media'},{'name': 'AgSubmenusComponent', 'selector': 'ag-submenus'},{'name': 'AgTableComponent', 'selector': 'ag-table'},{'name': 'AgTableschemaComponent', 'selector': 'app-ag-tableschema'},{'name': 'AgTimerComponent', 'selector': 'ag-timer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChequeoAutoelevadorComponent', 'selector': 'app-chequeo-autoelevador'},{'name': 'GenerateIndicatorsComponent', 'selector': 'app-ag-indicators-charts'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'PaletteComponent', 'selector': 'app-palette'},{'name': 'TemplateComponent', 'selector': 'app-template'}];
+    var DIRECTIVES = [{'name': 'BaseDynamicInputComponent', 'selector': ''},{'name': 'BaseFormComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'AgModelosIndicadoresComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AgModelosIndicadoresComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

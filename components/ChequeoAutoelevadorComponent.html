@@ -1,0 +1,2005 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agronorte-lib-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">agronorte-lib-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ChequeoAutoelevadorComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente <code>ChequeoAutoelevadorComponent</code> encargado de gestionar y visualizar
+los chequeos mensuales y diarios de autoelevadores.</p>
+<p>Este componente permite cargar datos de chequeos desde una API, actualizarlos
+en formularios, y mostrar los resultados en tablas. Además, maneja la lógica
+para verificar el vencimiento de los chequeos y proporciona retroalimentación
+al usuario mediante un <code>snackBar</code>.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-chequeo-autoelevador</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/AgFormComponent.html" target="_self" >AgFormComponent</a></code>
+                                <code><a href="../components/AgInputComponent.html" target="_self" >AgInputComponent</a></code>
+                            <code>CommonModule</code>
+                            <code>MatSnackBarModule</code>
+                                <code><a href="../components/AgTableComponent.html" target="_self" >AgTableComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./chequeo-autoelevador.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./chequeo-autoelevador.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#body" >body</a>
+                            </li>
+                            <li>
+                                <a href="#environment" >environment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR" >FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#FORM_TABLE_CHEQUEO_AUTOELEVADOR" >FORM_TABLE_CHEQUEO_AUTOELEVADOR</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#isRegistros" >isRegistros</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#isSend" >isSend</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#isVencido" >isVencido</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarResultadosTablaMensualChequeo" >mostrarResultadosTablaMensualChequeo</a>
+                            </li>
+                            <li>
+                                <a href="#results" >results</a>
+                            </li>
+                            <li>
+                                <a href="#resultsTableDiaria" >resultsTableDiaria</a>
+                            </li>
+                            <li>
+                                <a href="#resultsTableMensual" >resultsTableMensual</a>
+                            </li>
+                            <li>
+                                <a href="#reveal_form" >reveal_form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#tabla_chequeo_api_search_group" >tabla_chequeo_api_search_group</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#tabla_chequeo_autoelevador" >tabla_chequeo_autoelevador</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#tabla_mensual_chequeo_api_search_group" >tabla_mensual_chequeo_api_search_group</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#tabla_mensual_chequeo_autoelevador" >tabla_mensual_chequeo_autoelevador</a>
+                            </li>
+                            <li>
+                                <a href="#urlBackend" >urlBackend</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#loadIntoForm" >loadIntoForm</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openSnackBar" >openSnackBar</a>
+                            </li>
+                            <li>
+                                <a href="#submitForm" >submitForm</a>
+                            </li>
+                            <li>
+                                <a href="#update_tabla_hequeo_search_interface" >update_tabla_hequeo_search_interface</a>
+                            </li>
+                            <li>
+                                <a href="#update_tabla_mensual_chequeo_search_interface" >update_tabla_mensual_chequeo_search_interface</a>
+                            </li>
+                            <li>
+                                <a href="#verVencimientoMensual" >verVencimientoMensual</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apiService: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, snackBar: MatSnackBar)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Crea una instancia del componente <code>ChequeoAutoelevadorComponent</code>.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Servicio para realizar peticiones HTTP a la API.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Servicio para mostrar mensajes emergentes (<code>snack-bar</code>).</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadIntoForm"></a>
+                    <span class="name">
+                        <span ><b>loadIntoForm</b></span>
+                        <a href="#loadIntoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadIntoForm(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga los datos en el formulario de chequeo mensual y muestra el formulario.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Datos del evento para cargar en el formulario.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="228"
+                                    class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:228</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método llamado al inicializar el componente.
+Realiza una petición a la API para obtener los chequeos mensuales
+y verifica si están vencidos.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSnackBar"></a>
+                    <span class="name">
+                        <span ><b>openSnackBar</b></span>
+                        <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openSnackBar(isSend: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:203</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Muestra un mensaje emergente indicando si el chequeo fue cargado correctamente.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isSend</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Indica si el formulario fue enviado correctamente.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitForm"></a>
+                    <span class="name">
+                        <span ><b>submitForm</b></span>
+                        <a href="#submitForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitForm(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:216</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el envío del formulario y muestra un mensaje emergente.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Indica si el formulario fue enviado.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update_tabla_hequeo_search_interface"></a>
+                    <span class="name">
+                        <span ><b>update_tabla_hequeo_search_interface</b></span>
+                        <a href="#update_tabla_hequeo_search_interface"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>update_tabla_hequeo_search_interface(apiSearchInterface: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:187</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la configuración de búsqueda para la tabla de chequeos
+y realiza una nueva búsqueda.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>apiSearchInterface</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Configuración de búsqueda para la tabla de chequeos.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update_tabla_mensual_chequeo_search_interface"></a>
+                    <span class="name">
+                        <span ><b>update_tabla_mensual_chequeo_search_interface</b></span>
+                        <a href="#update_tabla_mensual_chequeo_search_interface"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>update_tabla_mensual_chequeo_search_interface(apiSearchInterface: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la configuración de búsqueda para la tabla mensual de chequeos
+y realiza una nueva búsqueda.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>apiSearchInterface</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Configuración de búsqueda para la tabla mensual.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verVencimientoMensual"></a>
+                    <span class="name">
+                        <span ><b>verVencimientoMensual</b></span>
+                        <a href="#verVencimientoMensual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>verVencimientoMensual(results: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifica si alguno de los chequeos mensuales está vencido.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>results</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Lista de resultados de chequeos mensuales.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="body"></a>
+                    <span class="name">
+                        <span ><b>body</b></span>
+                        <a href="#body"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    page: 1,
+    criteria_group: {
+      group_list: [
+        {
+          logic_operator: &quot;AND&quot;, // Ajusta esto según tus necesidades
+          criteria_list: [
+            {
+              column_filter: &#x27;&#x27;,
+              compare_criteria: &quot;PARECIDO A&quot;, // Ajusta esto según tus necesidades
+              compare_value: &#x27;&#x27;
+            }
+          ],
+          group_list: []
+        }
+      ]
+    }
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:133</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto para almacenar los parámetros de búsqueda en la API.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Acceso a las variables de entorno.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR</b></span>
+                        <a href="#FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgFormComponent.html" target="_self" >AgFormComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al formulario mensual de chequeos de autoelevadores.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FORM_TABLE_CHEQUEO_AUTOELEVADOR"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>FORM_TABLE_CHEQUEO_AUTOELEVADOR</b></span>
+                        <a href="#FORM_TABLE_CHEQUEO_AUTOELEVADOR"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgFormComponent.html" target="_self" >AgFormComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;FORM_TABLE_CHEQUEO_AUTOELEVADOR&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al formulario de chequeos de autoelevadores.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isRegistros"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>isRegistros</b></span>
+                        <a href="#isRegistros"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:103</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla la visualización de registros.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSend"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>isSend</b></span>
+                        <a href="#isSend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si el formulario fue enviado correctamente.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isVencido"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>isVencido</b></span>
+                        <a href="#isVencido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si los chequeos están vencidos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarResultadosTablaMensualChequeo"></a>
+                    <span class="name">
+                        <span ><b>mostrarResultadosTablaMensualChequeo</b></span>
+                        <a href="#mostrarResultadosTablaMensualChequeo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla la visibilidad de la tabla mensual de chequeos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="results"></a>
+                    <span class="name">
+                        <span ><b>results</b></span>
+                        <a href="#results"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Almacena los resultados obtenidos de la API.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resultsTableDiaria"></a>
+                    <span class="name">
+                        <span ><b>resultsTableDiaria</b></span>
+                        <a href="#resultsTableDiaria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Resultados para la tabla de chequeos diarios.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resultsTableMensual"></a>
+                    <span class="name">
+                        <span ><b>resultsTableMensual</b></span>
+                        <a href="#resultsTableMensual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Resultados para la tabla de chequeos mensuales.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reveal_form"></a>
+                    <span class="name">
+                        <span ><b>reveal_form</b></span>
+                        <a href="#reveal_form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:195</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabla_chequeo_api_search_group"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>tabla_chequeo_api_search_group</b></span>
+                        <a href="#tabla_chequeo_api_search_group"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ApiSearchInterface.html" target="_self" >ApiSearchInterface</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Almacena la configuración de búsqueda para la tabla de chequeos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabla_chequeo_autoelevador"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>tabla_chequeo_autoelevador</b></span>
+                        <a href="#tabla_chequeo_autoelevador"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgTableComponent.html" target="_self" >AgTableComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;tabla_chequeo_autoelevador&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:127</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia a la tabla de chequeos de autoelevadores.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabla_mensual_chequeo_api_search_group"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>tabla_mensual_chequeo_api_search_group</b></span>
+                        <a href="#tabla_mensual_chequeo_api_search_group"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ApiSearchInterface.html" target="_self" >ApiSearchInterface</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Almacena la configuración de búsqueda para la tabla mensual de chequeos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabla_mensual_chequeo_autoelevador"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>tabla_mensual_chequeo_autoelevador</b></span>
+                        <a href="#tabla_mensual_chequeo_autoelevador"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgTableComponent.html" target="_self" >AgTableComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;tabla_mensual_chequeo_autoelevador&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:121</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia a la tabla mensual de chequeos de autoelevadores.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="urlBackend"></a>
+                    <span class="name">
+                        <span ><b>urlBackend</b></span>
+                        <a href="#urlBackend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;http://127.0.0.1:8000/&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/chequeo-autoelevador/chequeo-autoelevador.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL del backend donde se realizan las peticiones API.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { AgFormComponent } from &#x27;../lib/widgets/ag-form/ag-form.component&#x27;;
+import { AgInputComponent } from &#x27;../lib/widgets/ag-input/ag-input.component&#x27;;
+import { ApiService } from &#x27;../lib/functions/api.service&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { MatSnackBar, MatSnackBarModule } from &#x27;@angular/material/snack-bar&#x27;;
+import { AgTableComponent } from &#x27;../lib/widgets/ag-table/ag-table.component&#x27;;
+import { environment } from &#x27;../../environments/environment.development&#x27;;
+import { ApiSearchInterface } from &#x27;../lib/interfaces/ApiSearchGroupInterface&#x27;;
+
+/**
+ * Componente &#x60;ChequeoAutoelevadorComponent&#x60; encargado de gestionar y visualizar
+ * los chequeos mensuales y diarios de autoelevadores.
+ * 
+ * Este componente permite cargar datos de chequeos desde una API, actualizarlos
+ * en formularios, y mostrar los resultados en tablas. Además, maneja la lógica
+ * para verificar el vencimiento de los chequeos y proporciona retroalimentación
+ * al usuario mediante un &#x60;snackBar&#x60;.
+ * 
+ * @component
+ * @implements OnInit
+ */
+@Component({
+  selector: &#x27;app-chequeo-autoelevador&#x27;,
+  standalone: true,
+  imports: [AgFormComponent, AgInputComponent, CommonModule, MatSnackBarModule, AgTableComponent],
+  templateUrl: &#x27;./chequeo-autoelevador.component.html&#x27;,
+  styleUrl: &#x27;./chequeo-autoelevador.component.css&#x27;
+})
+export class ChequeoAutoelevadorComponent implements OnInit{
+
+  /**
+ * Crea una instancia del componente &#x60;ChequeoAutoelevadorComponent&#x60;.
+ * 
+ * @param {ApiService} apiService - Servicio para realizar peticiones HTTP a la API.
+ * @param {MatSnackBar} snackBar - Servicio para mostrar mensajes emergentes (&#x60;snack-bar&#x60;).
+ */
+  constructor(private apiService:ApiService, private snackBar: MatSnackBar){}
+
+  /**
+   * URL del backend donde se realizan las peticiones API.
+   * @type {string}
+   */
+  urlBackend:String &#x3D; &quot;http://127.0.0.1:8000/&quot;
+
+  /**
+   * Almacena los resultados obtenidos de la API.
+   * @type {any[]}
+   */
+  results: any[] &#x3D; [];
+
+  /**
+   * Resultados para la tabla de chequeos mensuales.
+   * @type {any[]}
+   */
+  resultsTableMensual:any[] &#x3D; [];
+  /**
+   * Resultados para la tabla de chequeos diarios.
+   * @type {any[]}
+   */
+  resultsTableDiaria: any[] &#x3D; [];
+
+  /**
+   * Almacena la configuración de búsqueda para la tabla mensual de chequeos.
+   * @type {ApiSearchInterface | undefined}
+   */
+  tabla_mensual_chequeo_api_search_group?: ApiSearchInterface;
+
+  /**
+   * Almacena la configuración de búsqueda para la tabla de chequeos.
+   * @type {ApiSearchInterface | undefined}
+   */
+  tabla_chequeo_api_search_group?: ApiSearchInterface;
+
+  /**
+   * Controla la visibilidad de la tabla mensual de chequeos.
+   * @type {boolean}
+   */
+  mostrarResultadosTablaMensualChequeo: boolean &#x3D; true; //Nombre inconsistente
+
+  /**
+   * Acceso a las variables de entorno.
+   * @type {typeof environment}
+   */
+  environment &#x3D; environment;
+
+  /**
+   * Indica si los chequeos están vencidos.
+   * @type {boolean | undefined}
+   */
+  isVencido?:boolean; //Nombre inconsistente
+
+  /**
+   * Indica si el formulario fue enviado correctamente.
+   * @type {boolean | undefined}
+   */
+  isSend?:boolean;
+
+  /**
+   * Controla la visualización de registros.
+   * @type {boolean}
+   */
+  isRegistros?:boolean &#x3D; true; //Nombre inconsistente
+
+  /**
+   * Referencia al formulario de chequeos de autoelevadores.
+   * @type {AgFormComponent | undefined}
+   */
+  @ViewChild(&#x27;FORM_TABLE_CHEQUEO_AUTOELEVADOR&#x27;) FORM_TABLE_CHEQUEO_AUTOELEVADOR?: AgFormComponent
+
+  /**
+   * Referencia al formulario mensual de chequeos de autoelevadores.
+   * @type {AgFormComponent | undefined}
+   */
+  @ViewChild(&#x27;FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR&#x27;) FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR?: AgFormComponent
+
+  /**
+   * Referencia a la tabla mensual de chequeos de autoelevadores.
+   * @type {AgTableComponent | undefined}
+   */
+  @ViewChild(&#x27;tabla_mensual_chequeo_autoelevador&#x27;) tabla_mensual_chequeo_autoelevador?: AgTableComponent
+
+  /**
+   * Referencia a la tabla de chequeos de autoelevadores.
+   * @type {AgTableComponent | undefined}
+   */
+  @ViewChild(&#x27;tabla_chequeo_autoelevador&#x27;) tabla_chequeo_autoelevador?: AgTableComponent
+
+  /**
+   * Objeto para almacenar los parámetros de búsqueda en la API.
+   * @type {Object}
+   */
+  body:any &#x3D; {
+    page: 1,
+    criteria_group: {
+      group_list: [
+        {
+          logic_operator: &quot;AND&quot;, // Ajusta esto según tus necesidades
+          criteria_list: [
+            {
+              column_filter: &#x27;&#x27;,
+              compare_criteria: &quot;PARECIDO A&quot;, // Ajusta esto según tus necesidades
+              compare_value: &#x27;&#x27;
+            }
+          ],
+          group_list: []
+        }
+      ]
+    }
+  };
+
+  /**
+   * Carga los datos en el formulario de chequeo mensual y muestra el formulario.
+   * 
+   * @param {any} event - Datos del evento para cargar en el formulario.
+   * @memberof ChequeoAutoelevadorComponent
+   */
+  loadIntoForm(event: any){
+    this.reveal_form &#x3D; true
+    setTimeout(() &#x3D;&gt; {
+      this.FORM_MENSUAL_TABLE_CHEQUEO_AUTOELEVADOR!.form_object &#x3D; event
+    }, 250);
+  }
+
+  /**
+   * Actualiza la configuración de búsqueda para la tabla mensual de chequeos
+   * y realiza una nueva búsqueda.
+   * 
+   * @param {ApiSearchInterface} apiSearchInterface - Configuración de búsqueda para la tabla mensual.
+   * @memberof ChequeoAutoelevadorComponent
+   */
+  update_tabla_mensual_chequeo_search_interface(apiSearchInterface: any){
+
+    this.tabla_mensual_chequeo_api_search_group &#x3D; apiSearchInterface
+    this.tabla_mensual_chequeo_autoelevador!.currentPage &#x3D; 1
+    this.tabla_mensual_chequeo_autoelevador?.callSearch()
+
+  }
+
+  /**
+   * Actualiza la configuración de búsqueda para la tabla de chequeos
+   * y realiza una nueva búsqueda.
+   *
+   * @memberof ChequeoAutoelevadorComponent 
+   * @param {ApiSearchInterface} apiSearchInterface - Configuración de búsqueda para la tabla de chequeos.
+   */
+  update_tabla_hequeo_search_interface(apiSearchInterface: any){ //Nombre inconsistente
+
+    this.tabla_chequeo_api_search_group &#x3D; apiSearchInterface
+    this.tabla_chequeo_autoelevador!.currentPage &#x3D; 1
+    this.tabla_chequeo_autoelevador?.callSearch()
+
+  }
+
+  reveal_form &#x3D; false;
+
+  /**
+   * Muestra un mensaje emergente indicando si el chequeo fue cargado correctamente.
+   * 
+   * @param {boolean} isSend - Indica si el formulario fue enviado correctamente.
+   * @memberof ChequeoAutoelevadorComponent
+   */
+  openSnackBar(isSend:boolean) {
+    if(isSend)
+      this.snackBar.open(&#x27;CHEQUEO CARGADO CORRECTAMENTE&#x27;, &#x27;Cerrar&#x27;, {
+        duration: 3000, // Duración en milisegundos (opcional)
+    });
+  }
+
+  /**
+   * Maneja el envío del formulario y muestra un mensaje emergente.
+   * 
+   * @param {boolean} value - Indica si el formulario fue enviado.
+   * @memberof ChequeoAutoelevadorComponent
+   */
+  submitForm(value:boolean){
+    this.isSend &#x3D; value;
+    this.openSnackBar(this.isSend)
+  }
+
+  /**
+   * Método llamado al inicializar el componente.
+   * Realiza una petición a la API para obtener los chequeos mensuales
+   * y verifica si están vencidos.
+   * 
+   * @memberof ChequeoAutoelevadorComponent
+   */
+  ngOnInit(): void {
+    const apiUrl &#x3D; &#x60;${this.urlBackend}api/search/mensual_chequeo_autoelevador&#x60;;
+
+    this.apiService.post(apiUrl, this.body).subscribe(
+      (data: any) &#x3D;&gt; {
+        this.results &#x3D; data.results; // Ajusta según la estructura de respuesta de tu API
+        this.verVencimientoMensual(this.results)
+      },
+      error &#x3D;&gt; {
+        console.error(&#x27;Error fetching data&#x27;, error);
+      }
+    );
+  }
+
+  /**
+   * Verifica si alguno de los chequeos mensuales está vencido.
+   * 
+   * @param {any[]} results - Lista de resultados de chequeos mensuales.
+   * @memberof ChequeoAutoelevadorComponent
+   */
+  verVencimientoMensual(results: any[]) { //Nombre inconsistente
+    if (!results || results.length &#x3D;&#x3D;&#x3D; 0) {
+      this.isVencido &#x3D; true; // Si no hay resultados, no está vencido
+      return;
+    }
+  
+    const haceUnMes &#x3D; new Date();//NOmbre inconsistente
+    haceUnMes.setMonth(haceUnMes.getMonth() - 1); // Añadir un mes a la fecha actual
+  
+    this.isVencido &#x3D; false; // Inicializar como no vencido
+  
+    for (let item of results) {
+      const fechaConvertida &#x3D; new Date(item.fechahora); // Convertir item.fechahora a un objeto Date
+  
+      if (fechaConvertida &lt;&#x3D; haceUnMes) {
+        this.isVencido &#x3D; true; // Si al menos uno está vencido, establecer isVencido y salir
+      }
+      else
+        this.isVencido &#x3D; false;
+    }
+  
+    // Si ninguno está vencido
+    
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container m-4&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col d-flex align-items-center justify-content-between&quot;&gt;
+          &lt;h1 class&#x3D;&quot;&quot;&gt;Formulario de chequeo de autoelevador&lt;/h1&gt;
+          &lt;button class&#x3D;&quot;btn btn-warning&quot; (click)&#x3D;&quot;this.isRegistros &#x3D; false&quot;&gt;Ver registros&lt;/button&gt;
+          &lt;button *ngIf&#x3D;&quot;!this.isRegistros&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;this.isRegistros &#x3D; true&quot;&gt;Volver&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div *ngIf&#x3D;&quot;isRegistros&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;isVencido&quot;&gt;
+            &lt;hr&gt;
+            &lt;h3&gt;Mensualmente&lt;/h3&gt;
+            &lt;ag-form #FORM_TABLE_MENSUAL_CHEQUEO_AUTOELEVADOR [reveal]&#x3D;&quot;true&quot; [formDefinition]&#x3D;&quot;&#x27;FORM_TABLE_MENSUAL_CHEQUEO_AUTOELEVADOR&#x27;&quot;
+                [endpoint]&#x3D;&quot;environment.URL_BACKEND + &#x27;/mensual_chequeo_autoelevador/create&#x27;&quot; (notificarSnack)&#x3D;&quot;submitForm($event)&quot;
+                (formOutput)&#x3D;&quot;submitForm($event)&quot;&gt;
+            &lt;/ag-form&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;hr&gt;
+            &lt;h3&gt;Diariamente&lt;/h3&gt;
+            &lt;ag-form #FORM_TABLE_CHEQUEO_AUTOELEVADOR [reveal]&#x3D;&quot;true&quot; [formDefinition]&#x3D;&quot;&#x27;FORM_TABLE_CHEQUEO_AUTOELEVADOR&#x27;&quot;
+                [endpoint]&#x3D;&quot;environment.URL_BACKEND + &#x27;/chequeo_autoelevador/create&#x27;&quot; (notificarSnack)&#x3D;&quot;submitForm($event)&quot;
+                (formOutput)&#x3D;&quot;submitForm($event)&quot;&gt;
+            &lt;/ag-form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;!isRegistros&quot;&gt;
+        &lt;div&gt;
+            &lt;hr&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;h3&gt;CHEQUEOS MENSUALES&lt;/h3&gt;
+            &lt;br&gt;
+            &lt;ag-table (onSelectedItem)&#x3D;&quot;loadIntoForm($event)&quot; *ngIf&#x3D;&quot;mostrarResultadosTablaMensualChequeo&quot; #tabla_mensual_chequeo_autoelevador 
+            [tableKeyName]&#x3D;&quot;&#x27;tabla_mensual_chequeo_autoelevador&#x27;&quot; [pageSize]&#x3D;&quot;10&quot; [api_search_criteria_group]&#x3D;&quot;tabla_mensual_chequeo_api_search_group&quot;/&gt;
+            &lt;hr&gt;
+            &lt;br&gt;
+            &lt;h3&gt;CHEQUEOS DIARIOS&lt;/h3&gt;
+            &lt;br&gt;
+            &lt;ag-table (onSelectedItem)&#x3D;&quot;loadIntoForm($event)&quot; *ngIf&#x3D;&quot;mostrarResultadosTablaMensualChequeo&quot; #tabla_chequeo_autoelevador 
+            [tableKeyName]&#x3D;&quot;&#x27;tabla_chequeo_autoelevador&#x27;&quot; [pageSize]&#x3D;&quot;10&quot; [api_search_criteria_group]&#x3D;&quot;tabla_chequeo_api_search_group&quot;/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container m-4">    <div class="row">        <div class="col d-flex align-items-center justify-content-between">          <h1 class="">Formulario de chequeo de autoelevador</h1>          <button class="btn btn-warning" (click)="this.isRegistros = false">Ver registros</button>          <button *ngIf="!this.isRegistros" class="btn btn-secondary" (click)="this.isRegistros = true">Volver</button>        </div>    </div>        <div *ngIf="isRegistros">        <div *ngIf="isVencido">            <hr>            <h3>Mensualmente</h3>            <ag-form #FORM_TABLE_MENSUAL_CHEQUEO_AUTOELEVADOR [reveal]="true" [formDefinition]="\'FORM_TABLE_MENSUAL_CHEQUEO_AUTOELEVADOR\'"                [endpoint]="environment.URL_BACKEND + \'/mensual_chequeo_autoelevador/create\'" (notificarSnack)="submitForm($event)"                (formOutput)="submitForm($event)">            </ag-form>        </div>        <div>            <hr>            <h3>Diariamente</h3>            <ag-form #FORM_TABLE_CHEQUEO_AUTOELEVADOR [reveal]="true" [formDefinition]="\'FORM_TABLE_CHEQUEO_AUTOELEVADOR\'"                [endpoint]="environment.URL_BACKEND + \'/chequeo_autoelevador/create\'" (notificarSnack)="submitForm($event)"                (formOutput)="submitForm($event)">            </ag-form>        </div>    </div>    <div *ngIf="!isRegistros">        <div>            <hr>        </div>        <div>            <h3>CHEQUEOS MENSUALES</h3>            <br>            <ag-table (onSelectedItem)="loadIntoForm($event)" *ngIf="mostrarResultadosTablaMensualChequeo" #tabla_mensual_chequeo_autoelevador             [tableKeyName]="\'tabla_mensual_chequeo_autoelevador\'" [pageSize]="10" [api_search_criteria_group]="tabla_mensual_chequeo_api_search_group"/>            <hr>            <br>            <h3>CHEQUEOS DIARIOS</h3>            <br>            <ag-table (onSelectedItem)="loadIntoForm($event)" *ngIf="mostrarResultadosTablaMensualChequeo" #tabla_chequeo_autoelevador             [tableKeyName]="\'tabla_chequeo_autoelevador\'" [pageSize]="10" [api_search_criteria_group]="tabla_chequeo_api_search_group"/>        </div>    </div>    </div></div>'
+    var COMPONENTS = [{'name': 'AgAlertsComponent', 'selector': 'ag-alerts'},{'name': 'AgAutocompleteComponent', 'selector': 'ag-autocomplete'},{'name': 'AgChartComponent', 'selector': 'ag-chart'},{'name': 'AgChildDynamicInputComponent', 'selector': 'ag-child-dynamic-input'},{'name': 'AgChildFormComponent', 'selector': 'ag-child-form'},{'name': 'AgContextMenuComponent', 'selector': 'app-context-menu'},{'name': 'AgCreateFormComponent', 'selector': 'ag-create-form'},{'name': 'AgDynamicInputComponent', 'selector': 'ag-dynamic-input'},{'name': 'AgFormComponent', 'selector': 'ag-form'},{'name': 'AgIndicadoresCalculados', 'selector': 'app-template'},{'name': 'AgIndicatorsComponent', 'selector': 'app-ag-indicators'},{'name': 'AgIndicatorsMachinesComponent', 'selector': 'app-template'},{'name': 'AgInputComponent', 'selector': 'ag-input'},{'name': 'AgLoginComponent', 'selector': 'ag-login'},{'name': 'AgLoginFormComponent', 'selector': 'ag-login-form'},{'name': 'AgLogoComponent', 'selector': 'app-ag-logo'},{'name': 'AgModalComponent', 'selector': 'ag-modal'},{'name': 'AgModelosIndicadoresComponent', 'selector': 'app-ag-modelos-indicadores'},{'name': 'AgNavbarComponent', 'selector': 'ag-navbar'},{'name': 'AgPermissionsComponent', 'selector': 'app-ag-permissions'},{'name': 'AgPopupAlertComponent', 'selector': 'ag-popup-alert'},{'name': 'AgRegisterFormComponent', 'selector': 'ag-register-form'},{'name': 'AgRelationsComponent', 'selector': 'app-ag-relations'},{'name': 'AgReportsComponent', 'selector': 'app-ag-reports'},{'name': 'AgSearchComponent', 'selector': 'ag-search'},{'name': 'AgSelectComponent', 'selector': 'ag-select'},{'name': 'AgSocialMediaComponent', 'selector': 'app-ag-social-media'},{'name': 'AgSubmenusComponent', 'selector': 'ag-submenus'},{'name': 'AgTableComponent', 'selector': 'ag-table'},{'name': 'AgTableschemaComponent', 'selector': 'app-ag-tableschema'},{'name': 'AgTimerComponent', 'selector': 'ag-timer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChequeoAutoelevadorComponent', 'selector': 'app-chequeo-autoelevador'},{'name': 'GenerateIndicatorsComponent', 'selector': 'app-ag-indicators-charts'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'PaletteComponent', 'selector': 'app-palette'},{'name': 'TemplateComponent', 'selector': 'app-template'}];
+    var DIRECTIVES = [{'name': 'BaseDynamicInputComponent', 'selector': ''},{'name': 'BaseFormComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'ChequeoAutoelevadorComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ChequeoAutoelevadorComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

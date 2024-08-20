@@ -1,0 +1,1553 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agronorte-lib-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">agronorte-lib-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >BaseDynamicInputComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/lib/widgets/BaseDynamicInputComponent.ts</code>
+        </p>
+
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#api_search_criteria_group" >api_search_criteria_group</a>
+                            </li>
+                            <li>
+                                <a href="#console" >console</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#input_search_table" >input_search_table</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#selectRef" >selectRef</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#handleSelectedItem" >handleSelectedItem</a>
+                            </li>
+                            <li>
+                                <a href="#isNumberType" >isNumberType</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#populate" >populate</a>
+                            </li>
+                            <li>
+                                <a href="#porDefectoTrue" >porDefectoTrue</a>
+                            </li>
+                            <li>
+                                <a href="#updateSearchTable" >updateSearchTable</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#form_object" >form_object</a>
+                            </li>
+                            <li>
+                                <a href="#i" >i</a>
+                            </li>
+                            <li>
+                                <a href="#imagePreview" >imagePreview</a>
+                            </li>
+                            <li>
+                                <a href="#isSearchInputModalOpen" >isSearchInputModalOpen</a>
+                            </li>
+                            <li>
+                                <a href="#isValid" >isValid</a>
+                            </li>
+                            <li>
+                                <a href="#item" >item</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarTablaResultados" >mostrarTablaResultados</a>
+                            </li>
+                            <li>
+                                <a href="#request_body" >request_body</a>
+                            </li>
+                            <li>
+                                <a href="#required" >required</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#asignarValue" >asignarValue</a>
+                            </li>
+                            <li>
+                                <a href="#closeSearchInputModal" >closeSearchInputModal</a>
+                            </li>
+                            <li>
+                                <a href="#onFileChange" >onFileChange</a>
+                            </li>
+                            <li>
+                                <a href="#openSearchInputModal" >openSearchInputModal</a>
+                            </li>
+                            <li>
+                                <a href="#removeImg" >removeImg</a>
+                            </li>
+                            <li>
+                                <a href="#setSelectCallback" >setSelectCallback</a>
+                            </li>
+                            <li>
+                                <a href="#setSelectValue" >setSelectValue</a>
+                            </li>
+                            <li>
+                                <a href="#update_api_search_interface" >update_api_search_interface</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="form_object"></a>
+                        <b>form_object</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="i"></a>
+                        <b>i</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="imagePreview"></a>
+                        <b>imagePreview</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | ArrayBuffer | null | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:86</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Vista previa de la imagen.</p>
+<p>Esta propiedad opcional permite establecer una vista previa de la imagen que se mostrará en el componente.
+Puede ser una URL (<code>string</code>), un <code>ArrayBuffer</code>, <code>null</code> o <code>undefined</code>. Esto es útil en casos donde se desea
+mostrar una imagen cargada previamente o seleccionada por el usuario antes de ser subida o procesada.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isSearchInputModalOpen"></a>
+                        <b>isSearchInputModalOpen</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>boolean | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isValid"></a>
+                        <b>isValid</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:72</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="item"></a>
+                        <b>item</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mostrarTablaResultados"></a>
+                        <b>mostrarTablaResultados</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>boolean | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:50</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="request_body"></a>
+                        <b>request_body</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:64</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="required"></a>
+                        <b>required</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:56</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+            <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="asignarValue"></a>
+                        <b>asignarValue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:108</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>(Nombre de variable inconsistente)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeSearchInputModal"></a>
+                        <b>closeSearchInputModal</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:96</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onFileChange"></a>
+                        <b>onFileChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:123</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openSearchInputModal"></a>
+                        <b>openSearchInputModal</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:91</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeImg"></a>
+                        <b>removeImg</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:128</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setSelectCallback"></a>
+                        <b>setSelectCallback</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:118</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setSelectValue"></a>
+                        <b>setSelectValue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:113</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="update_api_search_interface"></a>
+                        <b>update_api_search_interface</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:102</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>de búsqueda API con nuevos datos.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSelectedItem"></a>
+                    <span class="name">
+                        <span ><b>handleSelectedItem</b></span>
+                        <a href="#handleSelectedItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleSelectedItem(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parsedOptions: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>con un objeto que contiene el nombre del ítem seleccionado (<code>name</code>), el evento asociado (<code>event</code>),
+y las opciones analizadas (<code>parsedOptions</code>). También cierra el modal de búsqueda estableciendo
+<code>isSearchInputModalOpen</code> en <code>false</code>.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El evento asociado con la selección del ítem.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El nombre del ítem seleccionado.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>parsedOptions</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Las opciones analizadas relacionadas con el ítem seleccionado.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNumberType"></a>
+                    <span class="name">
+                        <span ><b>isNumberType</b></span>
+                        <a href="#isNumberType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isNumberType(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>en la lista: <code>int</code>, <code>float</code>, <code>double</code>, o <code>decimal</code>. Utiliza el método <code>includes</code> para comprobar la presencia
+del tipo en esta lista.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El tipo de dato a verificar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Retorna <code>true</code> si el tipo es uno de los tipos numéricos predefinidos, de lo contrario <code>false</code>.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>imprimir en la consola el objeto de formulario (<code>form_object</code>) para fines de depuración.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populate"></a>
+                    <span class="name">
+                        <span ><b>populate</b></span>
+                        <a href="#populate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>populate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>y luego llama al método <code>populate</code> en dicho componente para cargar los datos necesarios.</p>
+<ul>
+<li>Establece la propiedad <code>request_body</code> del componente <code>selectRef</code> con el valor de <code>request_body</code>.</li>
+<li>Llama al método <code>populate</code> del componente <code>selectRef</code> para inicializar o actualizar los datos.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="porDefectoTrue"></a>
+                    <span class="name">
+                        <span ><b>porDefectoTrue</b></span>
+                        <a href="#porDefectoTrue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>porDefectoTrue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Si ambas condiciones se cumplen, asigna el valor <code>1</code> al campo correspondiente en el objeto de formulario (<code>form_object</code>) y retorna <code>true</code>.
+De lo contrario, retorna <code>false</code>.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Retorna <code>true</code> si el ítem es de tipo <code>tinyint</code> y es obligatorio, de lo contrario retorna <code>false</code>.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSearchTable"></a>
+                    <span class="name">
+                        <span ><b>updateSearchTable</b></span>
+                        <a href="#updateSearchTable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateSearchTable(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:216</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>a través del <code>EventEmitter</code> <code>update_api_search_interface</code> con el evento proporcionado (<code>event</code>)
+y el índice actual (<code>i</code>).</p>
+<ul>
+<li>Asigna el criterio de búsqueda (<code>event</code>) a la propiedad <code>api_search_criteria_group</code> del componente
+<code>input_search_table</code> (si está definido).</li>
+<li>Llama al método <code>callSearch</code> en el componente <code>input_search_table</code> (si está definido) para realizar la búsqueda.</li>
+<li>Emite el evento <code>update_api_search_interface</code> con los datos del evento y el índice actual.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El nuevo criterio de búsqueda a aplicar a la tabla.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="api_search_criteria_group"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>api_search_criteria_group</b></span>
+                        <a href="#api_search_criteria_group"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:140</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Grupo de criterios de búsqueda para la API.</p>
+<p>Esta propiedad opcional define un conjunto de criterios de búsqueda que se utilizarán al interactuar con la API.
+Puede incluir diferentes operadores lógicos y condiciones para filtrar los resultados.
+El tipo de dato es flexible (<code>any</code>) para permitir diversas estructuras de criterios de búsqueda.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="console"></a>
+                    <span class="name">
+                        <span ><b>console</b></span>
+                        <a href="#console"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>console</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="input_search_table"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>input_search_table</b></span>
+                        <a href="#input_search_table"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgTableComponent.html" target="_self" >AgTableComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;input_search_table&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:13</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>para manejar la tabla de búsqueda. Utilizado con <code>@ViewChild</code>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectRef"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>selectRef</b></span>
+                        <a href="#selectRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgSelectComponent.html" target="_self" >AgSelectComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;selectRef&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/lib/widgets/BaseDynamicInputComponent.ts:20</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>para manejar la selección de ítems. Utilizado con <code>@ViewChild</code>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input, Output, EventEmitter, Directive, ViewChild} from &#x27;@angular/core&#x27;;
+import { AgTableComponent } from &#x27;./ag-table/ag-table.component&#x27;;
+import { AgSelectComponent } from &#x27;./ag-select/ag-select.component&#x27;;
+
+
+@Directive()
+export abstract class BaseDynamicInputComponent {
+
+  /**
+   * @property {AgTableComponent | undefined} input_search_table - Referencia al componente &#x60;AgTableComponent&#x60; 
+   * para manejar la tabla de búsqueda. Utilizado con &#x60;@ViewChild&#x60;.
+   */
+  @ViewChild(&#x27;input_search_table&#x27;) input_search_table?: AgTableComponent
+    
+  
+  /**
+   * @property {AgSelectComponent | undefined} selectRef - Referencia al componente &#x60;AgSelectComponent&#x60; 
+   * para manejar la selección de ítems. Utilizado con &#x60;@ViewChild&#x60;.
+   */
+  @ViewChild(&#x27;selectRef&#x27;) selectRef?: AgSelectComponent
+
+  /**
+   * @property {any} item - Objeto que representa el ítem actual con el que se está trabajando.
+   */
+  @Input() item: any;
+
+  /**
+   * @property {any} form_object - Objeto de formulario que contiene los datos del formulario asociado.
+   */
+  @Input() form_object: any;
+
+
+  /**
+   * @property {number | undefined} i - Índice o identificador del ítem actual en el contexto del componente.
+   */
+  @Input() i: number | undefined;
+
+
+  /**
+   * @property {boolean | undefined} isSearchInputModalOpen - Indica si el modal de búsqueda está abierto (&#x60;true&#x60;) 
+   * o cerrado (&#x60;false&#x60;).
+   */
+  @Input() isSearchInputModalOpen: boolean | undefined;
+
+
+  /**
+   * @property {boolean | undefined} mostrarTablaResultados - Controla la visualización de la tabla de resultados. 
+   * 
+   */
+  @Input() mostrarTablaResultados: boolean | undefined;
+
+
+  /**
+   * @property {boolean | undefined} required - Indica si el ítem es obligatorio (&#x60;true&#x60;) o no (&#x60;false&#x60;).
+   */
+  @Input() required?:boolean 
+
+
+
+  /**
+   * @property {object | undefined} request_body - Cuerpo de la solicitud para enviar datos o parámetros 
+   * al componente de selección.
+   */
+  @Input() request_body?: object;
+
+
+
+  /**
+    * @property {boolean | undefined} isValid - Indica si los datos del formulario son válidos (&#x60;true&#x60;) 
+    * o no (&#x60;false&#x60;).
+    */
+  @Input() isValid?: boolean;
+
+
+
+  /**
+   * Vista previa de la imagen.
+   * 
+   * Esta propiedad opcional permite establecer una vista previa de la imagen que se mostrará en el componente.
+   * Puede ser una URL (&#x60;string&#x60;), un &#x60;ArrayBuffer&#x60;, &#x60;null&#x60; o &#x60;undefined&#x60;. Esto es útil en casos donde se desea 
+   * mostrar una imagen cargada previamente o seleccionada por el usuario antes de ser subida o procesada.
+   * 
+   * @type {string | ArrayBuffer | null | undefined}
+   * @memberof AgDynamicInputComponent
+  */
+  @Input() imagePreview?: string | ArrayBuffer | null | undefined
+    
+  /**
+    * @property {EventEmitter&lt;any&gt;} openSearchInputModal - Emisor de eventos para abrir el modal de búsqueda.
+  */
+  @Output() openSearchInputModal &#x3D; new EventEmitter&lt;any&gt;();
+  
+  /**
+    * @property {EventEmitter&lt;number&gt;} closeSearchInputModal - Emisor de eventos para cerrar el modal de búsqueda.
+  */
+  @Output() closeSearchInputModal &#x3D; new EventEmitter&lt;number&gt;();
+  
+  /**
+   * @property {EventEmitter&lt;any&gt;} update_api_search_interface - Emisor de eventos para actualizar la interfaz 
+   * de búsqueda API con nuevos datos.
+  */
+  @Output() update_api_search_interface &#x3D; new EventEmitter&lt;any&gt;();
+  
+  /**
+   * @property {EventEmitter&lt;any&gt;} asignarValue - Emisor de eventos para asignar un valor a un ítem seleccionado. 
+   * (Nombre de variable inconsistente)
+  */
+  @Output() asignarValue &#x3D; new EventEmitter&lt;any&gt;(); // Nombre de variable inconsistente
+  
+  /**
+   * @property {EventEmitter&lt;any&gt;} setSelectValue - Emisor de eventos para establecer el valor de selección en el componente.
+  */
+  @Output() setSelectValue &#x3D; new EventEmitter&lt;any&gt;();
+  
+  /**
+   * @property {EventEmitter&lt;any&gt;} setSelectCallback - Emisor de eventos para manejar el callback de selección.
+  */
+  @Output() setSelectCallback &#x3D; new EventEmitter&lt;any&gt;();
+  
+  /**
+   * @property {EventEmitter&lt;any&gt;} onFileChange - Emisor de eventos para manejar los cambios en los archivos cargados.
+  */
+  @Output() onFileChange &#x3D; new EventEmitter&lt;any&gt;();
+  
+  /**
+   * @property {EventEmitter&lt;any&gt;} removeImg - Emisor de eventos para eliminar una imagen.
+  */
+  @Output() removeImg &#x3D; new EventEmitter&lt;any&gt;();
+  
+  /**
+   * Grupo de criterios de búsqueda para la API.
+   * 
+   * Esta propiedad opcional define un conjunto de criterios de búsqueda que se utilizarán al interactuar con la API.
+   * Puede incluir diferentes operadores lógicos y condiciones para filtrar los resultados.
+   * El tipo de dato es flexible (&#x60;any&#x60;) para permitir diversas estructuras de criterios de búsqueda.
+   * 
+   * @type {any}
+   * @memberof AgDynamicInputComponent
+  */
+  api_search_criteria_group?: any
+
+  /**
+    * @property {Console} console - Referencia a la consola del navegador para depuración.
+  */
+  console &#x3D; console
+    
+
+  /**
+   * @description Este método se ejecuta al inicializar el componente. Su propósito principal es
+   * imprimir en la consola el objeto de formulario (&#x60;form_object&#x60;) para fines de depuración.
+   * @returns {void}
+   * @memberof AgDynamicInputComponent
+  */
+  ngOnInit(): void {
+      console.log(this.form_object)
+  }
+
+  /**
+   * @memberof AgDynamicInputComponent
+   * @description Este método verifica si el tipo de dato del ítem (&#x60;item.type&#x60;) es &#x60;tinyint&#x60; y si es obligatorio (&#x60;item.required&#x60; igual a &#x60;1&#x60;). 
+   * Si ambas condiciones se cumplen, asigna el valor &#x60;1&#x60; al campo correspondiente en el objeto de formulario (&#x60;form_object&#x60;) y retorna &#x60;true&#x60;. 
+   * De lo contrario, retorna &#x60;false&#x60;.
+   * @returns {boolean} Retorna &#x60;true&#x60; si el ítem es de tipo &#x60;tinyint&#x60; y es obligatorio, de lo contrario retorna &#x60;false&#x60;.
+  */
+  porDefectoTrue() {//nombre de variable inconsistente
+    if (this.item.type &#x3D;&#x3D;&#x3D; &#x27;tinyint&#x27; &amp;&amp; this.item.required &#x3D;&#x3D;&#x3D; 1) {
+        this.form_object[this.item.name] &#x3D; 1;
+        return true;
+    }
+    return false;
+  }
+
+
+  /**
+   * @memberof AgDynamicInputComponent
+   * @description Verifica si el tipo de dato proporcionado (&#x60;type&#x60;) es uno de los tipos numéricos predefinidos 
+   * en la lista: &#x60;int&#x60;, &#x60;float&#x60;, &#x60;double&#x60;, o &#x60;decimal&#x60;. Utiliza el método &#x60;includes&#x60; para comprobar la presencia 
+   * del tipo en esta lista.
+   * @param {string} type - El tipo de dato a verificar.
+   * @returns {boolean} Retorna &#x60;true&#x60; si el tipo es uno de los tipos numéricos predefinidos, de lo contrario &#x60;false&#x60;.
+  */
+  isNumberType(type: string): boolean {
+    return [&#x27;int&#x27;, &#x27;float&#x27;, &#x27;double&#x27;, &#x27;decimal&#x27;].includes(type);
+  }
+
+  /**
+ * @memberof AgDynamicInputComponent
+ * @description Maneja la selección de un ítem. Emite un evento a través del &#x60;EventEmitter&#x60; &#x60;asignarValue&#x60; 
+ * con un objeto que contiene el nombre del ítem seleccionado (&#x60;name&#x60;), el evento asociado (&#x60;event&#x60;), 
+ * y las opciones analizadas (&#x60;parsedOptions&#x60;). También cierra el modal de búsqueda estableciendo 
+ * &#x60;isSearchInputModalOpen&#x60; en &#x60;false&#x60;.
+ * @param {any} event - El evento asociado con la selección del ítem.
+ * @param {string} name - El nombre del ítem seleccionado.
+ * @param {any} parsedOptions - Las opciones analizadas relacionadas con el ítem seleccionado.
+ * @returns {void}
+ */
+  handleSelectedItem(event: any, name: string, parsedOptions: any) {
+    this.asignarValue.emit({ name, event, parsedOptions });
+    this.isSearchInputModalOpen &#x3D; false
+  }
+
+  /**
+ * @memberof AgDynamicInputComponent
+ * @description Actualiza la tabla de búsqueda con los nuevos criterios de búsqueda y emite un evento 
+ * a través del &#x60;EventEmitter&#x60; &#x60;update_api_search_interface&#x60; con el evento proporcionado (&#x60;event&#x60;) 
+ * y el índice actual (&#x60;i&#x60;). 
+ * 
+ * - Asigna el criterio de búsqueda (&#x60;event&#x60;) a la propiedad &#x60;api_search_criteria_group&#x60; del componente 
+ * &#x60;input_search_table&#x60; (si está definido).
+ * - Llama al método &#x60;callSearch&#x60; en el componente &#x60;input_search_table&#x60; (si está definido) para realizar la búsqueda.
+ * - Emite el evento &#x60;update_api_search_interface&#x60; con los datos del evento y el índice actual.
+ * 
+ * @param {any} event - El nuevo criterio de búsqueda a aplicar a la tabla.
+ * @returns {void}
+ */
+  updateSearchTable(event: any){
+    this.input_search_table!.api_search_criteria_group &#x3D; event; 
+    this.input_search_table?.callSearch()
+    this.update_api_search_interface.emit({ event: event, index: this.i })
+  }
+
+  /**
+ * @memberof AgDynamicInputComponent
+ * @description Asigna el objeto &#x60;request_body&#x60; al componente &#x60;selectRef&#x60; (si está definido) 
+ * y luego llama al método &#x60;populate&#x60; en dicho componente para cargar los datos necesarios.
+ * 
+ * - Establece la propiedad &#x60;request_body&#x60; del componente &#x60;selectRef&#x60; con el valor de &#x60;request_body&#x60;.
+ * - Llama al método &#x60;populate&#x60; del componente &#x60;selectRef&#x60; para inicializar o actualizar los datos.
+ * 
+ * @returns {void}
+ */
+  populate(){
+    this.selectRef!.request_body &#x3D; this.request_body
+    this.selectRef!.populate()
+  }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'BaseDynamicInputComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1046 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agronorte-lib-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">agronorte-lib-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AgRelationsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/lib/menus/admin/ag-relations/ag-relations.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para la gestión de relaciones.</p>
+<p>Este componente maneja la visualización y administración de relaciones a través de un formulario y una tabla.
+Incluye funcionalidades para actualizar la interfaz de búsqueda y cargar datos en el formulario.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-ag-relations</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                                <code><a href="../components/AgFormComponent.html" target="_self" >AgFormComponent</a></code>
+                                <code><a href="../components/AgSearchComponent.html" target="_self" >AgSearchComponent</a></code>
+                                <code><a href="../components/AgTableComponent.html" target="_self" >AgTableComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ag-relations.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./ag-relations.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#environment" >environment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#FORM_TABLE_RELATIONS" >FORM_TABLE_RELATIONS</a>
+                            </li>
+                            <li>
+                                <a href="#FormDefinitions" >FormDefinitions</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarResultadosTablaRelations" >mostrarResultadosTablaRelations</a>
+                            </li>
+                            <li>
+                                <a href="#reveal_form" >reveal_form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#tabla_relations" >tabla_relations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#tabla_relations_api_search_group" >tabla_relations_api_search_group</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#loadIntoForm" >loadIntoForm</a>
+                            </li>
+                            <li>
+                                <a href="#update_tabla_relations_search_interface" >update_tabla_relations_search_interface</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadIntoForm"></a>
+                    <span class="name">
+                        <span ><b>loadIntoForm</b></span>
+                        <a href="#loadIntoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadIntoForm(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga datos en el formulario después de un evento.</p>
+<p>Activa el formulario y asigna el objeto de formulario con los datos del evento después de un retraso de 250 ms.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Los datos del evento que se cargarán en el formulario.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update_tabla_relations_search_interface"></a>
+                    <span class="name">
+                        <span ><b>update_tabla_relations_search_interface</b></span>
+                        <a href="#update_tabla_relations_search_interface"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>update_tabla_relations_search_interface(apiSearchInterface: <a href="../interfaces/ApiSearchInterface.html" target="_self">ApiSearchInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la interfaz de búsqueda de la tabla de relaciones.</p>
+<p>Configura el grupo de búsqueda para la tabla y reinicia la página actual a 1 antes de realizar una búsqueda.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>apiSearchInterface</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ApiSearchInterface.html" target="_self" >ApiSearchInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El grupo de búsqueda de API para actualizar la tabla.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Entorno de la aplicación.</p>
+<p>Proporciona acceso a las variables y configuraciones del entorno de la aplicación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FORM_TABLE_RELATIONS"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>FORM_TABLE_RELATIONS</b></span>
+                        <a href="#FORM_TABLE_RELATIONS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgFormComponent.html" target="_self" >AgFormComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;FORM_TABLE_RELATIONS&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al componente de formulario de relaciones.</p>
+<p>Utilizado para interactuar con el formulario de relaciones en la vista.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FormDefinitions"></a>
+                    <span class="name">
+                        <span ><b>FormDefinitions</b></span>
+                        <a href="#FormDefinitions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>FormDefinitions</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Definiciones de formulario.</p>
+<p>Proporciona acceso a las constantes relacionadas con la definición de formularios.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarResultadosTablaRelations"></a>
+                    <span class="name">
+                        <span ><b>mostrarResultadosTablaRelations</b></span>
+                        <a href="#mostrarResultadosTablaRelations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable de estado para mostrar los resultados de la tabla de relaciones.</p>
+<p>Indica si los resultados deben mostrarse en la tabla de relaciones.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reveal_form"></a>
+                    <span class="name">
+                        <span ><b>reveal_form</b></span>
+                        <a href="#reveal_form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:125</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Bandera para revelar el formulario.</p>
+<p>Controla la visibilidad del formulario en la vista.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabla_relations"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>tabla_relations</b></span>
+                        <a href="#tabla_relations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/AgTableComponent.html" target="_self" >AgTableComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;tabla_relations&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al componente de tabla de relaciones.</p>
+<p>Utilizado para interactuar con la tabla de relaciones en la vista.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabla_relations_api_search_group"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>tabla_relations_api_search_group</b></span>
+                        <a href="#tabla_relations_api_search_group"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ApiSearchInterface.html" target="_self" >ApiSearchInterface</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/lib/menus/admin/ag-relations/ag-relations.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Grupo de búsqueda de API para la tabla de relaciones.</p>
+<p>Define la interfaz de búsqueda para la tabla de relaciones. Puede ser <code>undefined</code> si no se ha configurado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { AgFormComponent } from &#x27;../../../widgets/ag-form/ag-form.component&#x27;;
+import { environment } from &#x27;../../../../../environments/environment.development&#x27;;
+import { AgSearchComponent } from &#x27;../../../widgets/ag-search/ag-search.component&#x27;;
+import { ApiSearchInterface } from &#x27;../../../interfaces/ApiSearchGroupInterface&#x27;;
+import { AgTableComponent } from &#x27;../../../widgets/ag-table/ag-table.component&#x27;;
+import { FormDefinitions } from &#x27;../../../constants&#x27;;
+
+/**
+ * Componente para la gestión de relaciones.
+ * 
+ * Este componente maneja la visualización y administración de relaciones a través de un formulario y una tabla.
+ * Incluye funcionalidades para actualizar la interfaz de búsqueda y cargar datos en el formulario.
+ * 
+ * @component
+ * @memberof AgRelationsComponent
+ */
+@Component({
+  selector: &#x27;app-ag-relations&#x27;,
+  standalone: true,
+  imports: [CommonModule, AgFormComponent, AgSearchComponent, AgTableComponent],
+  templateUrl: &#x27;./ag-relations.component.html&#x27;,
+  styleUrl: &#x27;./ag-relations.component.css&#x27;
+})
+export class AgRelationsComponent {
+  
+  /**
+   * Entorno de la aplicación.
+   * 
+   * Proporciona acceso a las variables y configuraciones del entorno de la aplicación.
+   * 
+   * @type {any}
+   * @memberof AgRelationsComponent
+   */
+  environment &#x3D; environment
+
+  /**
+   * Definiciones de formulario.
+   * 
+   * Proporciona acceso a las constantes relacionadas con la definición de formularios.
+   * 
+   * @type {FormDefinitions}
+   * @memberof AgRelationsComponent
+   */
+  FormDefinitions &#x3D; FormDefinitions
+
+  /**
+   * Grupo de búsqueda de API para la tabla de relaciones.
+   * 
+   * Define la interfaz de búsqueda para la tabla de relaciones. Puede ser &#x60;undefined&#x60; si no se ha configurado.
+   * 
+   * @type {ApiSearchInterface | undefined}
+   * @memberof AgRelationsComponent
+   */
+  tabla_relations_api_search_group?: ApiSearchInterface
+
+  /**
+   * Referencia al componente de tabla de relaciones.
+   * 
+   * Utilizado para interactuar con la tabla de relaciones en la vista.
+   * 
+   * @type {AgTableComponent | undefined}
+   * @memberof AgRelationsComponent
+   */
+  @ViewChild(&#x27;tabla_relations&#x27;) tabla_relations?: AgTableComponent
+
+  /**
+   * Referencia al componente de formulario de relaciones.
+   * 
+   * Utilizado para interactuar con el formulario de relaciones en la vista.
+   * 
+   * @type {AgFormComponent | undefined}
+   * @memberof AgRelationsComponent
+   */
+  @ViewChild(&#x27;FORM_TABLE_RELATIONS&#x27;) FORM_TABLE_RELATIONS?: AgFormComponent
+
+  /**
+   * Actualiza la interfaz de búsqueda de la tabla de relaciones.
+   * 
+   * Configura el grupo de búsqueda para la tabla y reinicia la página actual a 1 antes de realizar una búsqueda.
+   * 
+   * @param {ApiSearchInterface} apiSearchInterface - El grupo de búsqueda de API para actualizar la tabla.
+   * @memberof AgRelationsComponent
+   */
+  update_tabla_relations_search_interface(apiSearchInterface: ApiSearchInterface){ 
+    this.tabla_relations_api_search_group &#x3D; apiSearchInterface
+    this.tabla_relations!.currentPage &#x3D; 1
+    this.tabla_relations?.callSearch()
+  }
+
+  /**
+   * Variable de estado para mostrar los resultados de la tabla de relaciones.
+   * 
+   * Indica si los resultados deben mostrarse en la tabla de relaciones.
+   * 
+   * @type {boolean}
+   * @memberof AgRelationsComponent
+   */
+  mostrarResultadosTablaRelations &#x3D; true
+
+  /**
+   * Carga datos en el formulario después de un evento.
+   * 
+   * Activa el formulario y asigna el objeto de formulario con los datos del evento después de un retraso de 250 ms.
+   * 
+   * @param {any} event - Los datos del evento que se cargarán en el formulario.
+   * @memberof AgRelationsComponent
+   */
+  loadIntoForm(event: any){
+    this.reveal_form &#x3D; true
+    setTimeout(() &#x3D;&gt; {
+      this.FORM_TABLE_RELATIONS!.form_object &#x3D; event
+    }, 250);
+  }
+
+  /**
+   * Bandera para revelar el formulario.
+   * 
+   * Controla la visibilidad del formulario en la vista.
+   * 
+   * @type {boolean}
+   * @memberof AgRelationsComponent
+   */
+  reveal_form &#x3D; false
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;h3&gt;Formulario para crear relaciones&lt;/h3&gt;
+    &lt;ag-form #FORM_TABLE_RELATIONS [reveal]&#x3D;&quot;true&quot; [endpoint]&#x3D;&quot;environment.URL_BACKEND+&#x27;/relations&#x27;&quot; [formDefinition]&#x3D;&quot;FormDefinitions.FORM_TABLE_RELATIONS&quot;&gt;&lt;/ag-form&gt;
+    &lt;hr&gt;
+
+    &lt;!-- &lt;ag-table (onSelectedItem)&#x3D;&quot;loadIntoForm($event)&quot; *ngIf&#x3D;&quot;mostrarResultadosTablaRelations&quot; #tabla_relations [tableKeyName]&#x3D;&quot;&#x27;tabla_relations&#x27;&quot; [pageSize]&#x3D;&quot;10&quot; [api_search_criteria_group]&#x3D;&quot;tabla_relations_api_search_group&quot;/&gt;                 --&gt;
+    
+    &lt;ag-search [formRef]&#x3D;&quot;FORM_TABLE_RELATIONS&quot; [tableKeyName]&#x3D;&quot;&#x27;tabla_relaciones&#x27;&quot;/&gt;
+
+&lt;/div&gt;
+
+
+
+
+
+&lt;!-- &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;row bg-secondary-subtle p-4 mt-4 rounded rounded--lg d-flex mb-4 justify-content-between&quot;&gt;
+      &lt;h1&gt;FORMULARIO DE RELACIONES&lt;/h1&gt;
+      &lt;hr&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;form &gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-md-5&quot;&gt;
+                &lt;div class&#x3D;&quot;col&quot;&gt;
+                  &lt;label for&#x3D;&quot;tablaSeleccionadaPadre&quot; class&#x3D;&quot;form-label&quot;&gt;Tabla padre&lt;/label&gt;
+                  &lt;select id&#x3D;&quot;tablaSeleccionadaPadre&quot; class&#x3D;&quot;form-select&quot; &gt;
+                    &lt;option value&#x3D;&quot;&quot;&gt;Seleccionar una tabla&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col&quot;&gt;
+                  &lt;label for&#x3D;&quot;campoPadre&quot; class&#x3D;&quot;form-label&quot;&gt;Campo&lt;/label&gt;
+                  &lt;select id&#x3D;&quot;campoPadre&quot; class&#x3D;&quot;form-select&quot; &gt;
+                    &lt;option value&#x3D;&quot;&quot;&gt;Selecciona un campo&lt;/option&gt;
+                  
+                  &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col&quot;&gt;
+                  &lt;label for&#x3D;&quot;campoPadre&quot; class&#x3D;&quot;form-label&quot;&gt;Definicion formulario padre&lt;/label&gt;
+                  &lt;select id&#x3D;&quot;campoPadre&quot; class&#x3D;&quot;form-select&quot;&gt;
+                    &lt;option value&#x3D;&quot;&quot;&gt;Selecciona un campo&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-md-2 d-flex justify-content-center align-items-center&quot;&gt;
+                
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-md-5 mb-4&quot;&gt;
+                &lt;div class&#x3D;&quot;col&quot;&gt;
+                  &lt;label for&#x3D;&quot;tablaHijo&quot; class&#x3D;&quot;form-label&quot;&gt;Tabla hijo&lt;/label&gt;
+                  &lt;select id&#x3D;&quot;tablaHijo&quot; class&#x3D;&quot;form-select&quot;&gt;
+                    &lt;option value&#x3D;&quot;&quot;&gt;Selecciona una tabla&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col&quot;&gt;
+                  &lt;label for&#x3D;&quot;campoHijo&quot; class&#x3D;&quot;form-label&quot;&gt;Campo&lt;/label&gt;
+                  &lt;select id&#x3D;&quot;campoHijo&quot; class&#x3D;&quot;form-select&quot;&gt;
+                    &lt;option value&#x3D;&quot;&quot;&gt;Selecciona un campo&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col&quot;&gt;
+                  &lt;label for&#x3D;&quot;campoHijo&quot; class&#x3D;&quot;form-label&quot;&gt;Definicion formulario hijo&lt;/label&gt;
+                  &lt;select  id&#x3D;&quot;campoHijo&quot; class&#x3D;&quot;form-select&quot;&gt;
+                    &lt;option value&#x3D;&quot;&quot;&gt;Selecciona un campo&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;row mb-3&quot;&gt;
+              &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                &lt;label for&#x3D;&quot;description&quot; class&#x3D;&quot;form-label&quot;&gt;Descripcion&lt;/label&gt;
+                &lt;input class&#x3D;&quot;form-control shadow-lg&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;description&quot; id&#x3D;&quot;description&quot;
+                  &gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                &lt;label for&#x3D;&quot;Tipo&quot; class&#x3D;&quot;form-label&quot;&gt;Tipo&lt;/label&gt;
+                &lt;input class&#x3D;&quot;form-control shadow-lg&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;Tipo&quot; id&#x3D;&quot;Tipo&quot;&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                &lt;label for&#x3D;&quot;editable&quot; class&#x3D;&quot;form-label&quot;&gt;¿Editable?&lt;/label&gt;
+                &lt;div class&#x3D;&quot;form-check form-switch pb-2&quot;&gt;
+                  &lt;input class&#x3D;&quot;form-check-input&quot; type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;editable&quot;
+                    name&#x3D;&quot;editable&quot;&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+  
+            &lt;div class&#x3D;&quot;d-flex justify-content-end&quot;&gt;
+              &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary me-2&quot;&gt;Crear&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;  style&#x3D;&quot;max-height: 460px; overflow-y: auto;&quot;&gt;
+          &lt;div  class&#x3D;&quot;bg-white rounded rounded--lg shadow-lg mb-4 p-3&quot;&gt;
+          &lt;h4&gt;Tabla creada&lt;/h4&gt;
+          &lt;hr&gt;
+
+        &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt; --&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <h3>Formulario para crear relaciones</h3>    <ag-form #FORM_TABLE_RELATIONS [reveal]="true" [endpoint]="environment.URL_BACKEND+\'/relations\'" [formDefinition]="FormDefinitions.FORM_TABLE_RELATIONS"></ag-form>    <hr>    <!-- <ag-table (onSelectedItem)="loadIntoForm($event)" *ngIf="mostrarResultadosTablaRelations" #tabla_relations [tableKeyName]="\'tabla_relations\'" [pageSize]="10" [api_search_criteria_group]="tabla_relations_api_search_group"/>                 -->        <ag-search [formRef]="FORM_TABLE_RELATIONS" [tableKeyName]="\'tabla_relaciones\'"/></div><!-- <div class="container">    <div class="row bg-secondary-subtle p-4 mt-4 rounded rounded--lg d-flex mb-4 justify-content-between">      <h1>FORMULARIO DE RELACIONES</h1>      <hr>      <div class="row">        <div class="col-md-6">          <form >            <div class="row">              <div class="col-md-5">                <div class="col">                  <label for="tablaSeleccionadaPadre" class="form-label">Tabla padre</label>                  <select id="tablaSeleccionadaPadre" class="form-select" >                    <option value="">Seleccionar una tabla</option>                  </select>                </div>                <div class="col">                  <label for="campoPadre" class="form-label">Campo</label>                  <select id="campoPadre" class="form-select" >                    <option value="">Selecciona un campo</option>                                    </select>                </div>                <div class="col">                  <label for="campoPadre" class="form-label">Definicion formulario padre</label>                  <select id="campoPadre" class="form-select">                    <option value="">Selecciona un campo</option>                  </select>                </div>              </div>              <div class="col-md-2 d-flex justify-content-center align-items-center">                              </div>              <div class="col-md-5 mb-4">                <div class="col">                  <label for="tablaHijo" class="form-label">Tabla hijo</label>                  <select id="tablaHijo" class="form-select">                    <option value="">Selecciona una tabla</option>                  </select>                </div>                <div class="col">                  <label for="campoHijo" class="form-label">Campo</label>                  <select id="campoHijo" class="form-select">                    <option value="">Selecciona un campo</option>                  </select>                </div>                <div class="col">                  <label for="campoHijo" class="form-label">Definicion formulario hijo</label>                  <select  id="campoHijo" class="form-select">                    <option value="">Selecciona un campo</option>                  </select>                </div>              </div>            </div>            <div class="row mb-3">              <div class="col-md-6">                <label for="description" class="form-label">Descripcion</label>                <input class="form-control shadow-lg" type="text" name="description" id="description"                  >              </div>              <div class="col-md-6">                <label for="Tipo" class="form-label">Tipo</label>                <input class="form-control shadow-lg" type="text" name="Tipo" id="Tipo">              </div>            </div>            <div class="row">              <div class="col-md-6">                <label for="editable" class="form-label">¿Editable?</label>                <div class="form-check form-switch pb-2">                  <input class="form-check-input" type="checkbox" id="editable"                    name="editable">                </div>              </div>            </div>              <div class="d-flex justify-content-end">              <button type="submit" class="btn btn-primary me-2">Crear</button>            </div>          </form>        </div>        <div class="col-md-6"  style="max-height: 460px; overflow-y: auto;">          <div  class="bg-white rounded rounded--lg shadow-lg mb-4 p-3">          <h4>Tabla creada</h4>          <hr>        </div>        </div>      </div>    </div>  </div> --></div>'
+    var COMPONENTS = [{'name': 'AgAlertsComponent', 'selector': 'ag-alerts'},{'name': 'AgAutocompleteComponent', 'selector': 'ag-autocomplete'},{'name': 'AgChartComponent', 'selector': 'ag-chart'},{'name': 'AgChildDynamicInputComponent', 'selector': 'ag-child-dynamic-input'},{'name': 'AgChildFormComponent', 'selector': 'ag-child-form'},{'name': 'AgContextMenuComponent', 'selector': 'app-context-menu'},{'name': 'AgCreateFormComponent', 'selector': 'ag-create-form'},{'name': 'AgDynamicInputComponent', 'selector': 'ag-dynamic-input'},{'name': 'AgFormComponent', 'selector': 'ag-form'},{'name': 'AgIndicadoresCalculados', 'selector': 'app-template'},{'name': 'AgIndicatorsComponent', 'selector': 'app-ag-indicators'},{'name': 'AgIndicatorsMachinesComponent', 'selector': 'app-template'},{'name': 'AgInputComponent', 'selector': 'ag-input'},{'name': 'AgLoginComponent', 'selector': 'ag-login'},{'name': 'AgLoginFormComponent', 'selector': 'ag-login-form'},{'name': 'AgLogoComponent', 'selector': 'app-ag-logo'},{'name': 'AgModalComponent', 'selector': 'ag-modal'},{'name': 'AgModelosIndicadoresComponent', 'selector': 'app-ag-modelos-indicadores'},{'name': 'AgNavbarComponent', 'selector': 'ag-navbar'},{'name': 'AgPermissionsComponent', 'selector': 'app-ag-permissions'},{'name': 'AgPopupAlertComponent', 'selector': 'ag-popup-alert'},{'name': 'AgRegisterFormComponent', 'selector': 'ag-register-form'},{'name': 'AgRelationsComponent', 'selector': 'app-ag-relations'},{'name': 'AgReportsComponent', 'selector': 'app-ag-reports'},{'name': 'AgSearchComponent', 'selector': 'ag-search'},{'name': 'AgSelectComponent', 'selector': 'ag-select'},{'name': 'AgSocialMediaComponent', 'selector': 'app-ag-social-media'},{'name': 'AgSubmenusComponent', 'selector': 'ag-submenus'},{'name': 'AgTableComponent', 'selector': 'ag-table'},{'name': 'AgTableschemaComponent', 'selector': 'app-ag-tableschema'},{'name': 'AgTimerComponent', 'selector': 'ag-timer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChequeoAutoelevadorComponent', 'selector': 'app-chequeo-autoelevador'},{'name': 'GenerateIndicatorsComponent', 'selector': 'app-ag-indicators-charts'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'PaletteComponent', 'selector': 'app-palette'},{'name': 'TemplateComponent', 'selector': 'app-template'}];
+    var DIRECTIVES = [{'name': 'BaseDynamicInputComponent', 'selector': ''},{'name': 'BaseFormComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'AgRelationsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AgRelationsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
